@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elvin Asgar — Construction Engineer & Industrial Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black: #060608;
+      --dark: #0d0d12;
+      --steel: #141419;
+      --panel: #1a1a22;
+      --yellow: #f5c400;
+      --yellow2: #ffd740;
+      --orange: #ff6b1a;
+      --red: #e63000;
+      --text: #e8e4d9;
+      --muted: #6b6878;
+      --grid: rgba(245,196,0,0.06);
+      --border: rgba(245,196,0,0.15);
+      --border2: rgba(255,255,255,0.06);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      cursor: crosshair;
+    }
+
+    /* SCANLINE OVERLAY */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* CONSTRUCTION GRID BG */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 3rem;
+      height: 56px;
+      background: rgba(6,6,8,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-id {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--yellow);
+      letter-spacing: 0.2em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    .nav-status::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: #00ff88;
+      border-radius: 50%;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    /* HERO */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 4rem 5rem;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-corner {
+      position: absolute;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--yellow);
+      letter-spacing: 0.15em;
+      opacity: 0.6;
+    }
+
+    .hero-corner.tl { top: 80px; left: 4rem; }
+    .hero-corner.tr { top: 80px; right: 4rem; text-align: right; }
+    .hero-corner.br { bottom: 5rem; right: 4rem; }
+
+    .hero-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 15vw, 14rem);
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-big .stroke {
+      -webkit-text-stroke: 2px var(--yellow);
+      color: transparent;
+    }
+
+    .hero-big .accent { color: var(--yellow); }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-desc {
+      max-width: 420px;
+    }
+
+    .hero-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--yellow);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-desc p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+    }
+
+    .htag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--border2);
+    }
+
+    .htag.active {
+      color: var(--yellow);
+      border-color: var(--border);
+      background: rgba(245,196,0,0.05);
+    }
+
+    /* DIAGONAL ACCENT */
+    .hero-line {
+      position: absolute;
+      top: 0; right: 20%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--yellow), transparent);
+      opacity: 0.2;
+    }
+
+    /* TICKER */
+    .ticker-wrap {
+      background: var(--yellow);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0.6rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .ticker {
+      display: inline-block;
+      animation: ticker 30s linear infinite;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: var(--black);
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* SECTIONS */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .sec-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    .sec-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--yellow);
+      letter-spacing: 0.2em;
+    }
+
+    .sec-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: 0.05em;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .sec-title span { color: var(--yellow); }
+
+    /* CONSTRUCTION EXPERIENCE — FEATURED */
+    .constr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border2);
+      border: 1px solid var(--border2);
+    }
+
+    .constr-card {
+      background: var(--dark);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .constr-card:hover { background: var(--steel); }
+
+    .constr-card.full { grid-column: 1 / -1; }
+
+    .constr-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--yellow);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s;
+    }
+
+    .constr-card:hover::before { transform: scaleY(1); }
+
+    .card-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--yellow);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-tag::before {
+      content: '▶';
+      font-size: 0.5rem;
+    }
+
+    .card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+      line-height: 1.1;
+    }
+
+    .card-company {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--yellow);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .card-list li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .card-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--yellow);
+      font-size: 0.7rem;
+    }
+
+    /* BRIDGE SPECIAL CARD */
+    .bridge-card {
+      background: linear-gradient(135deg, var(--dark), var(--steel));
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bridge-card::after {
+      content: '510M';
+      position: absolute;
+      right: 2rem;
+      bottom: 1rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: rgba(245,196,0,0.06);
+      letter-spacing: 0.1em;
+      pointer-events: none;
+    }
+
+    /* PROJECTS LIST */
+    .proj-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .proj-table tr {
+      border-bottom: 1px solid var(--border2);
+      transition: background 0.2s;
+      cursor: default;
+    }
+
+    .proj-table tr:hover { background: rgba(245,196,0,0.03); }
+
+    .proj-table td {
+      padding: 1.1rem 0.5rem;
+      font-size: 0.88rem;
+    }
+
+    .proj-table td:first-child {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--yellow);
+      width: 60px;
+      letter-spacing: 0.1em;
+    }
+
+    .proj-table td:nth-child(2) {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .proj-table td:last-child {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--muted);
+      text-align: right;
+      letter-spacing: 0.05em;
+    }
+
+    /* RESEARCH */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1px;
+      background: var(--border2);
+    }
+
+    .research-card {
+      background: var(--dark);
+      padding: 2rem;
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .research-card:hover { background: var(--steel); }
+
+    .rcard-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: rgba(245,196,0,0.1);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .rcard-title {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+
+    .rcard-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--yellow);
+      letter-spacing: 0.1em;
+    }
+
+    /* BOOKS */
+    .books-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .book-card {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      border-top: 3px solid var(--yellow);
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .book-card:hover { transform: translateY(-4px); }
+
+    .book-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .book-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* OTHER EXPERIENCE */
+    .other-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border2);
+    }
+
+    .other-card {
+      background: var(--dark);
+      padding: 1.5rem 2rem;
+      transition: background 0.3s;
+    }
+
+    .other-card:hover { background: var(--steel); }
+
+    .other-role {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+    }
+
+    .other-co {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--yellow);
+      letter-spacing: 0.05em;
+    }
+
+    /* SKILLS BAR */
+    .skills-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 40px;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .skill-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text);
+      letter-spacing: 0.05em;
+    }
+
+    .skill-track {
+      height: 3px;
+      background: var(--panel);
+      position: relative;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .skill-fill.go { transform: scaleX(1); }
+
+    .skill-pct {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--yellow);
+      text-align: right;
+    }
+
+    /* CONTACT */
+    #contact {
+      position: relative;
+      z-index: 1;
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 5rem 4rem;
+    }
+
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-big span { color: var(--yellow); }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .clink {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border: 1px solid var(--border2);
+      color: var(--text);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .clink::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--yellow);
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+      z-index: 0;
+    }
+
+    .clink:hover::before { transform: translateX(0); }
+
+    .clink span, .clink svg {
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s;
+    }
+
+    .clink:hover span, .clink:hover svg { color: var(--black); }
+
+    .clink-icon {
+      font-size: 1rem;
+      width: 20px;
+    }
+
+    .contact-note {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      line-height: 2;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-note strong {
+      color: var(--yellow);
+      font-weight: 400;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border2);
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer span {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    footer .fyellow { color: var(--yellow); }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.up { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      #hero { padding: 0 1.5rem 4rem; }
+      .hero-big { font-size: clamp(4rem, 18vw, 6rem); }
+      .hero-bottom { flex-direction: column; gap: 2rem; align-items: flex-start; }
+      .hero-tags { align-items: flex-start; }
+      .section { padding: 4rem 1.5rem; }
+      .constr-grid { grid-template-columns: 1fr; }
+      .other-grid { grid-template-columns: 1fr 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .skill-row { grid-template-columns: 140px 1fr 35px; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-id" href="#hero">EA_CONSTRUCT</a>
+  <ul class="nav-links">
+    <li><a href="#construction">Field</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#industcons">IndustrCons</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-status">OPEN TO WORK · BAKU</div>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-line"></div>
+
+  <div class="hero-corner tl">
+    ID: ELVIN_ASGAR_001<br>
+    ROLE: CONSTRUCTION ENG + INDUSTRIAL<br>
+    LOC: BAKU, AZ / INTERNATIONAL
+  </div>
+
+  <div class="hero-corner tr">
+    15K+ LINKEDIN<br>
+    500+ CONNECTIONS<br>
+    26+ PROJECTS
+  </div>
+
+  <div class="hero-big">
+    ELVIN<br>
+    <span class="stroke">ASGAR</span><br>
+    <span class="accent">BUILD</span>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-desc">
+      <div class="hero-label">// CHANGE TO CHANGE</div>
+      <p>
+        Industrial Engineering graduate with hands-on construction site experience
+        across reinforced concrete, bridge infrastructure, fit-out, and international
+        energy projects. Combining field operations with research, planning, and
+        platform building.
+      </p>
+    </div>
+    <div class="hero-tags">
+      <div class="htag active">▶ CONSTRUCTION ENGINEER</div>
+      <div class="htag active">▶ QUANTITY SURVEYOR</div>
+      <div class="htag active">▶ PLANNING ENGINEER</div>
+      <div class="htag">▶ GRADUATE RESEARCHER</div>
+      <div class="htag">▶ INDUSTCONS FOUNDER</div>
+      <div class="htag">▶ TEDX ORGANIZER</div>
+    </div>
+  </div>
+
+  <div class="hero-corner br">// FUTURISTIC CONSTRUCTION · 2026</div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    QATARENERGY EPC-1 &nbsp;◆&nbsp; LACHIN BRIDGE 510M &nbsp;◆&nbsp; AZAL T2 &nbsp;◆&nbsp; SOCAR CRUDE OIL REFINERY &nbsp;◆&nbsp; PASHA HOLDING &nbsp;◆&nbsp; SEA BREEZE &nbsp;◆&nbsp; McKINSEY AZERBAIJAN &nbsp;◆&nbsp; AZAL NAA TRAINING CENTER &nbsp;◆&nbsp; SITHALCAY ELECTRICAL &nbsp;◆&nbsp; JTI · EY · PASHA INSURANCE &nbsp;◆&nbsp; QATARENERGY EPC-1 &nbsp;◆&nbsp; LACHIN BRIDGE 510M &nbsp;◆&nbsp; AZAL T2 &nbsp;◆&nbsp; SOCAR CRUDE OIL REFINERY &nbsp;◆&nbsp; PASHA HOLDING &nbsp;◆&nbsp; SEA BREEZE &nbsp;◆&nbsp; McKINSEY AZERBAIJAN &nbsp;◆&nbsp; AZAL NAA TRAINING CENTER &nbsp;◆&nbsp; SITHALCAY ELECTRICAL &nbsp;◆&nbsp; JTI · EY · PASHA INSURANCE &nbsp;◆&nbsp;
+  </div>
+</div>
+
+<!-- CONSTRUCTION EXPERIENCE -->
+<div id="construction">
+  <div class="section">
+    <div class="sec-header reveal">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">CONSTRUCTION <span>FIELD</span></h2>
+    </div>
+
+    <div class="constr-grid">
+
+      <!-- BRIDGE — HERO CARD -->
+      <div class="constr-card full bridge-card reveal">
+        <div class="card-tag">INFRASTRUCTURE · BRIDGE · LACHIN PROJECT</div>
+        <div class="card-title">Civil Incremental Engineer — Freyssinet Azerbaijan</div>
+        <div class="card-company">ASSOCIATED WITH FALCOM LLC · LACHIN CORRIDOR</div>
+        <ul class="card-list">
+          <li>510-metre bridge construction supervision — joined for 100m incremental launch segment</li>
+          <li>C45/55 class concrete (100-year service life) in approach viaducts; C35/37 in main viaducts with high early strength (50-year service life)</li>
+          <li>Monitored tensioning of bridge with equipment during T-shape side tensioning; controlled the process of segment construction every 15–20 days using leg-mounted launching gantry</li>
+          <li>Dynamic design control, construction method equipment (front beak, traction beams) design and supply oversight</li>
+          <li>Push-drive operation management; analysis of mechanism control system, interval and number of days per viaduct</li>
+          <li><strong style="color:var(--text)">Key bridges:</strong> K13 (push-slide stretching), K15 Mini Pile Works, KM 58+712 culvert, KM 72+835.62 culvert, Lachin Airport Bridge push-slide stretching</li>
+        </ul>
+      </div>
+
+      <!-- FALCOM CIVIL -->
+      <div class="constr-card reveal">
+        <div class="card-tag">CIVIL · SITE SUPERVISION</div>
+        <div class="card-title">Civil Engineer</div>
+        <div class="card-company">FALCOM LLC</div>
+        <ul class="card-list">
+          <li>Supervision of reinforcement stocks and concrete casting operations daily</li>
+          <li>Monitoring correct casting of reinforcement connections per drawing</li>
+          <li>Supervision of dug piles — depth of pile irons, concreting, and reporting</li>
+          <li>Liaison with contractor & subcontractor companies, foremen, and PMs</li>
+          <li>Participating until end of concrete delivery, observing volume</li>
+          <li>HSE coordination and safe work instructions to field teams</li>
+          <li>Daily, weekly, and monthly progress reports</li>
+        </ul>
+      </div>
+
+      <!-- AMINA SITE ENG -->
+      <div class="constr-card reveal">
+        <div class="card-tag">FIT-OUT · INTERIOR</div>
+        <div class="card-title">Site Engineer</div>
+        <div class="card-company">AMINA AND S GROUP</div>
+        <ul class="card-list">
+          <li>Managed all fit-out activities on-site: AZAL T2/5, AZAL Terminal 2 Floor 5 roofing and slate renovation</li>
+          <li>EY Office, JTI Office PbW, McKinsey Azerbaijan Office, PASHA Holding/Insurance/Life Offices, AZAL-AZANS Conference Room, "Medicine" Shop Project (Cresent/Pasha Malls)</li>
+          <li>Monitored project via Primavera P6, tracking delayed work</li>
+          <li>Material receipt, stock control, ordering and monitoring</li>
+          <li>SIMA registration, personnel management, initial acceptance</li>
+          <li>Compliance with project specifications, drawings, and regulations</li>
+        </ul>
+      </div>
+
+      <!-- AVENSOL -->
+      <div class="constr-card full reveal">
+        <div class="card-tag">TECHNICAL OFFICE · ENERGY</div>
+        <div class="card-title">Junior Technical Office Engineer</div>
+        <div class="card-company">AVENSOL LLC · SITHALCAY 2 ELECTRICAL PROJECT · SEA BREEZE (SEA SURFACE EARTHING) · SOCAR CRUDE OIL REFINERY</div>
+        <ul class="card-list">
+          <li>Prepared daily site reports for progress tracking and coordination between site and technical office</li>
+          <li>Reviewed, updated, and revised technical drawings — transferred latest versions to site teams</li>
+          <li>Controlled document and drawing circulation, version accuracy and proper distribution</li>
+          <li>Prepared and issued daily, weekly, and monthly material demand orders</li>
+          <li>Prepared RFI documents in line with quality control requirements; AutoCAD mark-ups and basic drafting based on site feedback</li>
+          <li>Supported HSE coordination — shared new employee information with main company HSE department</li>
+        </ul>
+      </div>
+
+      <!-- MAF / QATAR -->
+      <div class="constr-card reveal">
+        <div class="card-tag">INTERNATIONAL · ENERGY · EPC</div>
+        <div class="card-title">Quantity Surveyor & Planning Engineer</div>
+        <div class="card-company">MAF GROUP LLC · QATARENERGY EPC-1 · Feb–May 2026</div>
+        <ul class="card-list">
+          <li>General Works for Offsites 2 — North Field East Onshore Project (EPC-1)</li>
+          <li>Cable tray, Cathodic Protection, Earthing, Electrical Conduit, Telecom, Transformers, Instrument Cable Transit</li>
+          <li>ARRANGEMENT SJB SYSTEM 60 — Fresh Water area data preparation, drawing info collection, volume acquisition, specification compliance checking</li>
+          <li>Neft Kəmərləri İdarəsi — РВСПК-20000m3 oil tank reconstruction planning phase data collection and Excel estimate tables</li>
+        </ul>
+      </div>
+
+      <!-- SCOPE -->
+      <div class="constr-card reveal">
+        <div class="card-tag">PLANNING & REPORTING</div>
+        <div class="card-title">Planning & Reporting Specialist</div>
+        <div class="card-company">SCOPE CONSULTING LLC</div>
+        <ul class="card-list">
+          <li>Planning and Reporting intern → Junior Planning and Reporting Specialist</li>
+          <li>Primavera P6 and MS Project — project monitoring and reporting delayed works to PM and subcontractor managers</li>
+          <li>Analysis of delays and implementation of early preventive measures</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" style="background:var(--dark); border-top:1px solid var(--border2); border-bottom:1px solid var(--border2);">
+  <div class="section">
+    <div class="sec-header reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">PROJECT <span>LOG</span></h2>
+    </div>
+    <table class="proj-table reveal">
+      <tbody>
+        <tr><td>P-001</td><td>General Works for Offsites 2 – North Field East Onshore Project (EPC-1) – QATARENERGY</td><td>INTERNATIONAL</td></tr>
+        <tr><td>P-002</td><td>K13 Bridge – Push-Slide Stretching (Lachin Project)</td><td>INFRASTRUCTURE</td></tr>
+        <tr><td>P-003</td><td>K15 Bridge Mini Pile Works (Lachin Project)</td><td>INFRASTRUCTURE</td></tr>
+        <tr><td>P-004</td><td>KM 58+712 6x4.5 Culvert (Lachin Project)</td><td>INFRASTRUCTURE</td></tr>
+        <tr><td>P-005</td><td>KM 72+835.62 Culvert (Lachin Project)</td><td>INFRASTRUCTURE</td></tr>
+        <tr><td>P-006</td><td>Lachin Airport Bridge – Push-Slide Stretching</td><td>INFRASTRUCTURE</td></tr>
+        <tr><td>P-007</td><td>Sithalcay 2 – Electrical Project</td><td>ENERGY</td></tr>
+        <tr><td>P-008</td><td>Sea Breeze – Sea Surface Earthing</td><td>ENERGY</td></tr>
+        <tr><td>P-009</td><td>SOCAR Crude Oil Refinery</td><td>ENERGY</td></tr>
+        <tr><td>P-010</td><td>AZAL Office T2/5</td><td>FIT-OUT</td></tr>
+        <tr><td>P-011</td><td>Roofing and Slate Renovation – AZAL Terminal 2 Floor 5</td><td>FIT-OUT</td></tr>
+        <tr><td>P-012</td><td>AZAL – NAA Training Center Project</td><td>FIT-OUT</td></tr>
+        <tr><td>P-013</td><td>AZAL – AZANS Conference Room</td><td>FIT-OUT</td></tr>
+        <tr><td>P-014</td><td>EY Office</td><td>FIT-OUT</td></tr>
+        <tr><td>P-015</td><td>JTI Office PbW</td><td>FIT-OUT</td></tr>
+        <tr><td>P-016</td><td>PASHA Holding Offices</td><td>FIT-OUT</td></tr>
+        <tr><td>P-017</td><td>Pasha Insurance Offices</td><td>FIT-OUT</td></tr>
+        <tr><td>P-018</td><td>Pasha Life Offices</td><td>FIT-OUT</td></tr>
+        <tr><td>P-019</td><td>McKinsey and Company Azerbaijan Office</td><td>FIT-OUT</td></tr>
+        <tr><td>P-020</td><td>"Medicine" Shop Project – Cresent/Pasha Malls</td><td>FIT-OUT</td></tr>
+        <tr><td>P-021</td><td>TEDx Project (BEU + MUSİAD Azerbaijan)</td><td>EVENT</td></tr>
+        <tr><td>P-022</td><td>IndustrCons Platform</td><td>PLATFORM</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div id="research">
+  <div class="section">
+    <div class="sec-header reveal">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">RESEARCH <span>&amp; PUBLICATIONS</span></h2>
+    </div>
+
+    <div class="research-grid reveal">
+      <div class="research-card">
+        <div class="rcard-num">01</div>
+        <div class="rcard-title">Bridge that can be created in Khirdalan city — traffic flow change approach and numerical and cost optimization</div>
+        <div class="rcard-tag">INFRASTRUCTURE · OPTIMIZATION</div>
+      </div>
+      <div class="research-card">
+        <div class="rcard-num">02</div>
+        <div class="rcard-title">The importance of changing the card system in Azerbaijan to a single card system and the optimal card offer for all public transport types</div>
+        <div class="rcard-tag">PUBLIC TRANSPORTATION · POLICY</div>
+      </div>
+      <div class="research-card">
+        <div class="rcard-num">03</div>
+        <div class="rcard-title">Proposed Bus Routes Between Baku and Sumgayit: Cost Analysis, Network Design, and Estimated Travel Times</div>
+        <div class="rcard-tag">URBAN MOBILITY · NETWORK</div>
+      </div>
+      <div class="research-card">
+        <div class="rcard-num">04</div>
+        <div class="rcard-title">Construction of Push-Pull Post-Tensioned Bridges: New Generation Infrastructure in Lachin</div>
+        <div class="rcard-tag">BRIDGE · POST-TENSION · LACHIN</div>
+      </div>
+      <div class="research-card">
+        <div class="rcard-num">05</div>
+        <div class="rcard-title">Artificial Intelligence-Driven Lean Construction: Integrating Industrial Engineering Principles into Modern Construction Management</div>
+        <div class="rcard-tag">AI · LEAN CONSTRUCTION · IND. ENG.</div>
+      </div>
+      <div class="research-card">
+        <div class="rcard-num">06</div>
+        <div class="rcard-title">Synchronization of Express Lines in Public Transportation Development</div>
+        <div class="rcard-tag">TRANSIT · OPTIMIZATION · URBAN</div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;" class="reveal">
+      <div class="sec-header" style="margin-bottom:2rem;">
+        <span class="sec-num">03B</span>
+        <h3 class="sec-title" style="font-size:2rem;">BOOKS <span>AUTHORED</span></h3>
+      </div>
+      <div class="books-row">
+        <div class="book-card">
+          <div class="book-icon">📖</div>
+          <div class="book-title">Hərşeyşünas: Bir Sənaye Mühəndisinin Macerası</div>
+        </div>
+        <div class="book-card">
+          <div class="book-icon">🏗️</div>
+          <div class="book-title">Mən inşaatda kiməm?</div>
+        </div>
+        <div class="book-card">
+          <div class="book-icon">⚙️</div>
+          <div class="book-title">İnşaat: Təkcə Mühəndislərin sahəsi deyil</div>
+        </div>
+        <div class="book-card">
+          <div class="book-icon">📊</div>
+          <div class="book-title">Layihə idarəetmə və planlama — ilkin anlayışlar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INDUSTCONS -->
+<div id="industcons" style="background:var(--dark); border-top:1px solid var(--border);">
+  <div class="section">
+    <div class="sec-header reveal">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">INDUSTR<span>CONS</span></h2>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;" class="reveal">
+      <div>
+        <div class="card-tag" style="margin-bottom:1rem;">PLATFORM · FOUNDER · Nov 2025 – Present</div>
+        <p style="font-size:0.95rem; color:var(--muted); line-height:1.8; margin-bottom:1.5rem;">
+          IndustrCons is a multi-directional platform built for construction and industrial sector professionals.
+          Starting with job market transparency — connecting job seekers with employers — the platform has already
+          grown to <strong style="color:var(--yellow)">1000+ community members</strong> via WhatsApp.
+        </p>
+        <p style="font-size:0.9rem; color:var(--muted); line-height:1.8;">
+          Three channels: <strong style="color:var(--text)">HR Network</strong> (construction HRs only),
+          <strong style="color:var(--text)">All Vacancies</strong> (various types),
+          <strong style="color:var(--text)">Construction Jobs</strong> (open sharing of CVs and vacancies).
+        </p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div style="background:var(--panel); border:1px solid var(--border); padding:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted);">COMMUNITY SIZE</span>
+          <span style="font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:var(--yellow);">1000+</span>
+        </div>
+        <div style="background:var(--panel); border:1px solid var(--border); padding:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted);">CHANNELS</span>
+          <span style="font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:var(--yellow);">3</span>
+        </div>
+        <div style="background:var(--panel); border:1px solid var(--border); padding:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted);">DIRECTIONS</span>
+          <span style="font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:var(--yellow);">MULTI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills">
+  <div class="section">
+    <div class="sec-header reveal">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">TECHNICAL <span>SKILLS</span></h2>
+    </div>
+    <div class="skills-wrap reveal">
+      <div class="skill-row"><span class="skill-name">Construction Site Mgmt</span><div class="skill-track"><div class="skill-fill" style="width:90%"></div></div><span class="skill-pct">90%</span></div>
+      <div class="skill-row"><span class="skill-name">Reinforced Concrete</span><div class="skill-track"><div class="skill-fill" style="width:85%"></div></div><span class="skill-pct">85%</span></div>
+      <div class="skill-row"><span class="skill-name">Technical Documentation</span><div class="skill-track"><div class="skill-fill" style="width:90%"></div></div><span class="skill-pct">90%</span></div>
+      <div class="skill-row"><span class="skill-name">Primavera P6</span><div class="skill-track"><div class="skill-fill" style="width:75%"></div></div><span class="skill-pct">75%</span></div>
+      <div class="skill-row"><span class="skill-name">MS Project</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span class="skill-pct">80%</span></div>
+      <div class="skill-row"><span class="skill-name">AutoCAD</span><div class="skill-track"><div class="skill-fill" style="width:72%"></div></div><span class="skill-pct">72%</span></div>
+      <div class="skill-row"><span class="skill-name">Quantity Surveying</span><div class="skill-track"><div class="skill-fill" style="width:78%"></div></div><span class="skill-pct">78%</span></div>
+      <div class="skill-row"><span class="skill-name">Project Planning</span><div class="skill-track"><div class="skill-fill" style="width:88%"></div></div><span class="skill-pct">88%</span></div>
+      <div class="skill-row"><span class="skill-name">HSE Coordination</span><div class="skill-track"><div class="skill-fill" style="width:75%"></div></div><span class="skill-pct">75%</span></div>
+      <div class="skill-row"><span class="skill-name">Research & Analysis</span><div class="skill-track"><div class="skill-fill" style="width:82%"></div></div><span class="skill-pct">82%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="contact-big reveal">
+        LET'S<br>
+        <span>BUILD</span><br>
+        TOGETHER
+      </div>
+      <div class="contact-links reveal">
+        <a href="https://linkedin.com/in/elvinasgarov" class="clink" target="_blank">
+          <span class="clink-icon">in</span>
+          <span>linkedin.com/in/elvinasgarov</span>
+        </a>
+        <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" class="clink" target="_blank">
+          <span class="clink-icon">RG</span>
+          <span>ResearchGate Profile</span>
+        </a>
+        <a href="mailto:elvinasgarov12@gmail.com" class="clink">
+          <span class="clink-icon">@</span>
+          <span>elvinasgarov12@gmail.com</span>
+        </a>
+        <a href="mailto:elvin.asgar@yahoo.com" class="clink">
+          <span class="clink-icon">@</span>
+          <span>elvin.asgar@yahoo.com</span>
+        </a>
+        <a href="tel:+994775889727" class="clink">
+          <span class="clink-icon">☎</span>
+          <span>+994 77 588 97 27</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-note reveal">
+      <strong>EDUCATION</strong><br>
+      Baku Engineering University<br>
+      BSc Industrial Engineering · 2019–2023<br>
+      BEU School of Languages · B2 English · 600hrs<br>
+      Div Academy · IT Project Management · 2025–2026<br>
+      <br>
+      <strong>VOLUNTEERING</strong><br>
+      Taskool — Program Coordinator<br>
+      STEAM Azerbaijan — International Volunteer<br>
+      TAIM — Educational Conference Volunteer<br>
+      Baku Circuit City — Volunteer<br>
+      ScholarColab.com — Research Mentor<br>
+      <br>
+      <strong>LOCATION</strong><br>
+      Baku City, Azerbaijan<br>
+      Open to: On-site · Hybrid · International<br>
+      <br>
+      <strong>STATUS</strong><br>
+      Open to Work ◆ Active
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 <span class="fyellow">ELVIN ASGAR</span> — CONSTRUCTION & INDUSTRIAL ENGINEER</span>
+  <span>CHANGE <span class="fyellow">TO</span> CHANGE</span>
+  <span>BAKU · AZERBAIJAN</span>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('up');
+        // Skill bars
+        e.target.querySelectorAll('.skill-fill').forEach(f => f.classList.add('go'));
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // Also trigger skills when their container is visible
+  const skillObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-fill').forEach(f => f.classList.add('go'));
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.skills-wrap').forEach(el => skillObs.observe(el));
+
+  // Nav active
+  const allSections = document.querySelectorAll('[id]');
+  const allNavLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    allSections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 150) cur = s.id;
+    });
+    allNavLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--yellow)' : '';
+    });
+  });
+</script>
+</body>
+</html>
