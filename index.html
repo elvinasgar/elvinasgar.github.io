@@ -1,513 +1,2235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Elvin Asgar — Construction Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elvin Asgarov | Construction Engineer & Industrial Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#06060a;--dark:#0e0e14;--steel:#15151d;--panel:#1c1c26;
-  --y:#f5c400;--y2:#ffd740;--muted:#5a5768;--text:#e8e4d9;
-  --border:rgba(245,196,0,0.15);--border2:rgba(255,255,255,0.055);
-  --grid:rgba(245,196,0,0.045);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
-body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);pointer-events:none;z-index:9998}
-.gridbg{position:fixed;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;z-index:0}
+  :root {
+    --neon-cyan: #00f5ff;
+    --neon-orange: #ff6b1a;
+    --neon-yellow: #f0e040;
+    --steel: #b0bec5;
+    --dark: #060a0f;
+    --dark2: #0a1018;
+    --dark3: #0f1923;
+    --dark4: #141f2e;
+    --glass: rgba(0,245,255,0.04);
+    --glass2: rgba(255,107,26,0.06);
+    --border: rgba(0,245,255,0.2);
+    --border2: rgba(255,107,26,0.3);
+  }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:54px;display:flex;justify-content:space-between;align-items:center;padding:0 3rem;background:rgba(6,6,10,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(14px)}
-.nav-logo{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--y);letter-spacing:0.18em;text-decoration:none}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
-.nav-links a:hover{color:var(--y)}
-.nav-dot{display:flex;align-items:center;gap:0.5rem;font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--muted)}
-.nav-dot::before{content:'';width:6px;height:6px;background:#00ff88;border-radius:50%;animation:blink 1.4s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.15}}
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* HERO */
-#hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:7rem 4rem 4rem;gap:4rem;z-index:1;overflow:hidden}
-.hero-vline{position:absolute;top:0;left:50%;width:1px;height:100%;background:linear-gradient(to bottom,transparent,var(--y),transparent);opacity:0.12;pointer-events:none}
-.hero-eyebrow{font-family:'Space Mono',monospace;font-size:0.62rem;color:var(--y);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.75rem}
-.hero-eyebrow::before{content:'';width:30px;height:1px;background:var(--y)}
-.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,9vw,7.5rem);line-height:0.92;letter-spacing:0.02em;margin-bottom:0.5rem}
-.stroke{-webkit-text-stroke:2px var(--y);color:transparent}
-.hero-tagline{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--y);letter-spacing:0.12em;margin-bottom:2rem;border-left:2px solid var(--y);padding-left:1rem}
-.hero-roles{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:2rem}
-.hero-role{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;display:flex;align-items:center;gap:0.6rem}
-.hero-role::before{content:'▶';font-size:0.45rem;color:var(--y)}
-.hero-about{font-size:0.88rem;color:var(--muted);line-height:1.8;max-width:480px;margin-bottom:2rem}
-.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
-.btn-y{background:var(--y);color:#000;padding:0.75rem 2rem;font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-decoration:none;transition:all 0.3s;font-weight:700;display:inline-block}
-.btn-y:hover{background:var(--y2);transform:translateY(-2px)}
-.btn-ghost{background:transparent;color:var(--text);padding:0.75rem 2rem;font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-decoration:none;border:1px solid var(--border2);transition:all 0.3s;display:inline-block}
-.btn-ghost:hover{border-color:var(--border);color:var(--y)}
-.hero-stats{display:flex;gap:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border2)}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--y);line-height:1}
-.stat-l{font-family:'Space Mono',monospace;font-size:0.55rem;color:var(--muted);letter-spacing:0.1em}
+  html { scroll-behavior: smooth; scroll-snap-type: none; }
 
-/* PHOTO */
-.hero-right{display:flex;justify-content:center;align-items:flex-end}
-.photo-frame{position:relative;width:100%;max-width:400px}
-.photo-frame img{width:100%;display:block;filter:grayscale(15%) contrast(1.05)}
-.photo-frame::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:1px solid var(--border);pointer-events:none;z-index:2}
-.photo-frame::after{content:'ELVIN ASGAR · 2026';position:absolute;bottom:-1.2rem;right:0;font-family:'Space Mono',monospace;font-size:0.55rem;color:var(--y);letter-spacing:0.15em}
-.photo-tag{position:absolute;top:1rem;left:-1.5rem;background:var(--y);color:#000;font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;padding:0.35rem 0.75rem;font-weight:700;writing-mode:vertical-rl;transform:rotate(180deg);z-index:3}
+  body {
+    background: var(--dark);
+    color: #cdd5e0;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
 
-/* TICKER */
-.ticker-wrap{background:var(--y);overflow:hidden;white-space:nowrap;padding:0.55rem 0;position:relative;z-index:10}
-.ticker{display:inline-block;animation:tick 38s linear infinite;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.12em;color:#000}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* Custom cursor */
+  #cursor {
+    position: fixed;
+    width: 10px; height: 10px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s, background 0.2s;
+    box-shadow: 0 0 12px var(--neon-cyan);
+  }
+  #cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(0,245,255,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: all 0.15s ease-out;
+  }
 
-/* SECTIONS */
-.wrap{max-width:1200px;margin:0 auto;padding:5rem 4rem;position:relative;z-index:1}
-.dark-section{background:var(--dark);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2)}
-.sec-head{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:3rem;padding-bottom:1rem;border-bottom:1px solid var(--border2)}
-.sec-n{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--y);letter-spacing:0.2em}
-.sec-t{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4.5vw,3.5rem);letter-spacing:0.05em;line-height:1}
-.sec-t span{color:var(--y)}
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dark2); }
+  ::-webkit-scrollbar-thumb { background: var(--neon-cyan); border-radius: 2px; }
 
-/* CARDS GRID */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border2);border:1px solid var(--border2)}
-.full{grid-column:1/-1}
-.card{background:var(--dark);padding:2.5rem;position:relative;overflow:hidden;transition:background 0.3s}
-.card:hover{background:var(--steel)}
-.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--y);transform:scaleY(0);transform-origin:top;transition:transform 0.4s}
-.card:hover::before{transform:scaleY(1)}
-.ctag{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--y);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.4rem}
-.ctag::before{content:'▶';font-size:0.45rem}
-.ctit{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.04em;margin-bottom:0.25rem;line-height:1.1}
-.cco{font-family:'Space Mono',monospace;font-size:0.62rem;color:var(--y);letter-spacing:0.06em;margin-bottom:1rem}
-.clist{list-style:none;display:flex;flex-direction:column;gap:0.35rem}
-.clist li{font-size:0.82rem;color:var(--muted);padding-left:1rem;position:relative;line-height:1.55}
-.clist li::before{content:'—';position:absolute;left:0;color:var(--y);font-size:0.65rem}
-.bridge-bg::after{content:'510M';position:absolute;right:1.5rem;bottom:0.5rem;font-family:'Bebas Neue',sans-serif;font-size:6rem;color:rgba(245,196,0,0.05);pointer-events:none}
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 16px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(180deg, rgba(6,10,15,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,245,255,0.08);
+  }
+  .nav-logo {
+    font-family: 'Orbitron', monospace;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--neon-cyan);
+    letter-spacing: 3px;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--neon-orange); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--steel);
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--neon-cyan);
+    transform: scaleX(0); transition: transform 0.3s;
+  }
+  .nav-links a:hover { color: var(--neon-cyan); }
+  .nav-links a:hover::after { transform: scaleX(1); }
 
-/* PROJECTS TABLE */
-.ptable{width:100%;border-collapse:collapse}
-.ptable tr{border-bottom:1px solid var(--border2);transition:background 0.2s}
-.ptable tr:hover{background:rgba(245,196,0,0.03)}
-.ptable td{padding:1rem 0.5rem;font-size:0.84rem}
-.ptable td:first-child{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--y);width:55px;letter-spacing:0.1em}
-.ptable td:last-child{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);text-align:right}
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
 
-/* RESEARCH */
-.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1px;background:var(--border2)}
-.rcard{background:var(--dark);padding:2rem;transition:background 0.3s}
-.rcard:hover{background:var(--steel)}
-.rnum{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(245,196,0,0.08);line-height:1;margin-bottom:0.4rem}
-.rtit{font-size:0.84rem;color:var(--text);line-height:1.55;margin-bottom:0.6rem}
-.rtag{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--y);letter-spacing:0.1em}
+  /* BIM grid background */
+  .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,245,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,245,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+  }
+  @keyframes gridMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(60px); }
+  }
 
-/* BOOKS */
-.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;margin-top:1.5rem}
-.bcard{background:var(--panel);border:1px solid var(--border2);border-top:3px solid var(--y);padding:1.5rem;transition:transform 0.3s}
-.bcard:hover{transform:translateY(-4px)}
-.bico{font-size:1.4rem;margin-bottom:0.6rem}
-.btit{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--text);line-height:1.5}
+  /* Scanline overlay */
+  .scanlines {
+    position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 2px,
+      rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px
+    );
+    z-index: 1;
+  }
 
-/* CERTS */
-.certs{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.5rem}
-.cert{background:var(--panel);border:1px solid var(--border);padding:0.6rem 1.2rem;font-family:'Space Mono',monospace;font-size:0.62rem;color:var(--text);display:flex;align-items:center;gap:0.5rem}
-.cert::before{content:'✓';color:var(--y)}
+  /* 3D Construction wireframe */
+  #bim-canvas {
+    position: absolute; inset: 0; z-index: 0;
+    opacity: 0.6;
+  }
 
-/* REVIEWS */
-.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem}
-.rev-card{background:var(--dark);border:1px solid var(--border2);border-top:2px solid var(--y);padding:2rem;transition:background 0.3s}
-.rev-card:hover{background:var(--steel)}
-.rev-q{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--y);line-height:0.8;margin-bottom:0.75rem;opacity:0.35}
-.rev-text{font-size:0.83rem;color:var(--muted);line-height:1.7;margin-bottom:1.2rem;font-style:italic}
-.rev-name{font-family:'Space Mono',monospace;font-size:0.68rem;color:var(--text)}
-.rev-title{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--y);margin-top:0.2rem}
-.rev-link{font-family:'Space Mono',monospace;font-size:0.55rem;color:var(--muted);text-decoration:none;margin-top:0.5rem;display:inline-block;transition:color 0.2s}
-.rev-link:hover{color:var(--y)}
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    max-width: 900px;
+  }
 
-/* INDUSTCONS */
-.ic-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.ic-stat{background:var(--panel);border:1px solid var(--border);padding:1.5rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
-.ic-stat-l{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted)}
-.ic-stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--y)}
+  .hero-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--neon-orange);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: block;
+    animation: fadeInDown 1s ease 0.3s both;
+  }
 
-/* OTHER EXP */
-.ogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2)}
-.ocard{background:var(--dark);padding:1.5rem 2rem;transition:background 0.3s}
-.ocard:hover{background:var(--steel)}
-.orole{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:0.04em;margin-bottom:0.2rem}
-.oco{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--y)}
+  .hero-name {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+    animation: fadeInUp 1s ease 0.5s both;
+  }
+  .hero-name .first { color: #e8edf2; }
+  .hero-name .last {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-cyan);
+    display: block;
+    text-shadow: none;
+  }
 
-/* SKILLS */
-.skills{display:flex;flex-direction:column;gap:1.1rem}
-.srow{display:grid;grid-template-columns:190px 1fr 38px;align-items:center;gap:1.5rem}
-.sname{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--text)}
-.strack{height:3px;background:var(--panel)}
-.sfill{height:100%;background:var(--y);transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(0.16,1,0.3,1)}
-.sfill.go{transform:scaleX(1)}
-.spct{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--y);text-align:right}
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+  .glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute; top: 0; left: 0; right: 0;
+    -webkit-text-stroke: 1.5px var(--neon-cyan);
+    color: transparent;
+  }
+  .glitch::before {
+    animation: glitch1 3s infinite;
+    text-shadow: 2px 0 var(--neon-orange);
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  }
+  .glitch::after {
+    animation: glitch2 3s infinite;
+    text-shadow: -2px 0 var(--neon-cyan);
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  }
+  @keyframes glitch1 {
+    0%,90%,100% { transform: none; opacity: 0; }
+    92% { transform: translateX(-3px); opacity: 0.8; }
+    94% { transform: translateX(3px); opacity: 0.8; }
+    96% { transform: translateX(0); opacity: 0; }
+  }
+  @keyframes glitch2 {
+    0%,90%,100% { transform: none; opacity: 0; }
+    93% { transform: translateX(3px); opacity: 0.8; }
+    95% { transform: translateX(-3px); opacity: 0.8; }
+    97% { transform: translateX(0); opacity: 0; }
+  }
 
-/* CONTACT */
-#contact{background:var(--dark);border-top:1px solid var(--border);padding:5rem 4rem;position:relative;z-index:1}
-.ct-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.ct-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5.5rem);line-height:0.9;margin-bottom:2rem}
-.ct-big span{color:var(--y)}
-.ct-links{display:flex;flex-direction:column;gap:0.75rem}
-.clink{display:flex;align-items:center;gap:1rem;padding:0.9rem 1.4rem;border:1px solid var(--border2);color:var(--text);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;transition:all 0.3s;position:relative;overflow:hidden}
-.clink::before{content:'';position:absolute;inset:0;background:var(--y);transform:translateX(-100%);transition:transform 0.3s;z-index:0}
-.clink:hover::before{transform:translateX(0)}
-.clink span{position:relative;z-index:1;transition:color 0.3s}
-.clink:hover span{color:#000}
-.clink-ico{width:22px}
-.ct-info{font-family:'Space Mono',monospace;font-size:0.63rem;color:var(--muted);line-height:2.2}
-.ct-info strong{color:var(--y);font-weight:400}
+  .hero-subtitle {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: clamp(0.65rem, 1.5vw, 0.85rem);
+    color: var(--neon-cyan);
+    letter-spacing: 3px;
+    margin: 24px 0 48px;
+    opacity: 0.85;
+    animation: fadeInUp 1s ease 0.8s both;
+  }
+  .hero-subtitle span {
+    color: var(--steel);
+    margin: 0 10px;
+  }
 
-footer{background:var(--bg);border-top:1px solid var(--border2);padding:1.5rem 4rem;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
-footer span{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);letter-spacing:0.1em}
-.fy{color:var(--y)}
+  .hero-cta {
+    display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    animation: fadeInUp 1s ease 1s both;
+  }
+  .btn-primary {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    padding: 14px 36px;
+    background: var(--neon-cyan);
+    color: var(--dark);
+    border: none;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  .btn-primary:hover {
+    background: var(--neon-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255,107,26,0.4);
+  }
+  .btn-outline {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    padding: 13px 36px;
+    background: transparent;
+    color: var(--neon-cyan);
+    border: 1px solid var(--neon-cyan);
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  .btn-outline:hover {
+    background: rgba(0,245,255,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,245,255,0.2);
+  }
 
-.rv{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
-.rv.up{opacity:1;transform:translateY(0)}
+  /* scroll indicator */
+  .scroll-ind {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    z-index: 2; text-align: center;
+    animation: fadeIn 1s ease 2s both;
+  }
+  .scroll-ind span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .scroll-line {
+    width: 1px; height: 48px;
+    background: linear-gradient(var(--neon-cyan), transparent);
+    margin: 0 auto;
+    animation: scrollAnim 2s ease infinite;
+  }
+  @keyframes scrollAnim {
+    0% { opacity: 1; transform: scaleY(1) translateY(0); }
+    100% { opacity: 0; transform: scaleY(0.5) translateY(12px); }
+  }
 
-@media(max-width:900px){
-  nav{padding:0 1.5rem}.nav-links{display:none}
-  #hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;gap:2rem}
-  .hero-right{order:-1}.photo-frame{max-width:260px;margin:0 auto}
-  .wrap{padding:3.5rem 1.5rem}
-  .grid2,.ic-grid{grid-template-columns:1fr}
-  .ogrid{grid-template-columns:1fr 1fr}
-  .ct-inner{grid-template-columns:1fr;gap:3rem}
-  footer{flex-direction:column;gap:0.5rem;text-align:center}
-  .srow{grid-template-columns:130px 1fr 32px;gap:0.75rem}
-  .hero-stats{flex-wrap:wrap;gap:1.5rem}
-}
+  /* ─── SECTION SHARED ─── */
+  section { padding: 100px 48px; }
+  .section-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--neon-orange);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: '//';
+    color: var(--neon-cyan);
+  }
+  .section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 60px;
+    color: #e8edf2;
+  }
+  .section-title .accent { color: var(--neon-cyan); }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--dark2); position: relative; overflow: hidden; }
+  #about::before {
+    content: 'ABOUT';
+    position: absolute; right: -2%; top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Orbitron', monospace;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(0,245,255,0.03);
+    white-space: nowrap;
+    letter-spacing: 20px;
+    pointer-events: none;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .profile-card {
+    position: sticky; top: 100px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 32px;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+  .profile-img-wrap {
+    width: 100%; aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .profile-img-wrap::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,245,255,0.15) 0%, transparent 60%);
+  }
+  .profile-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%) contrast(1.05);
+  }
+  .profile-name {
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e8edf2;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+  }
+  .profile-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--neon-cyan);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .profile-contacts { display: flex; flex-direction: column; gap: 10px; }
+  .contact-item {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--steel);
+    display: flex; gap: 10px; align-items: flex-start;
+    letter-spacing: 0.5px;
+  }
+  .contact-item .ci-icon { color: var(--neon-orange); font-size: 0.8rem; flex-shrink: 0; }
+  .contact-item a { color: var(--steel); text-decoration: none; transition: color 0.2s; word-break: break-all; }
+  .contact-item a:hover { color: var(--neon-cyan); }
+  .social-row {
+    display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;
+  }
+  .social-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    color: var(--steel);
+    text-decoration: none;
+    transition: all 0.2s;
+    background: transparent;
+    clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+  }
+  .social-btn:hover { color: var(--neon-cyan); border-color: var(--neon-cyan); background: rgba(0,245,255,0.07); }
+
+  .about-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #9baab8;
+    margin-bottom: 20px;
+  }
+  .about-text p strong { color: var(--neon-cyan); font-weight: 600; }
+  .stat-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px; margin-top: 40px;
+  }
+  .stat-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 20px;
+    text-align: center;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .stat-card:hover { border-color: var(--neon-cyan); background: rgba(0,245,255,0.07); }
+  .stat-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--neon-cyan);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--steel);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { background: var(--dark3); position: relative; }
+  .skills-wrapper { max-width: 1200px; margin: 0 auto; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .skill-group-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--neon-orange);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border2);
+  }
+  .skill-item { margin-bottom: 18px; }
+  .skill-header {
+    display: flex; justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .skill-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #cdd5e0;
+    letter-spacing: 1px;
+  }
+  .skill-pct {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--neon-cyan);
+  }
+  .skill-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-orange));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 0 8px var(--neon-cyan);
+  }
+  .skill-fill.animate { transform: scaleX(1); }
+
+  .tag-cloud {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;
+  }
+  .skill-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    color: var(--steel);
+    clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+    transition: all 0.2s;
+  }
+  .skill-tag:hover { color: var(--neon-cyan); border-color: var(--neon-cyan); }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--dark2); }
+  .exp-container { max-width: 1200px; margin: 0 auto; }
+  .exp-filter {
+    display: flex; gap: 12px; margin-bottom: 48px; flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    padding: 8px 20px;
+    border: 1px solid var(--border);
+    color: var(--steel);
+    background: transparent;
+    cursor: pointer;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    color: var(--neon-cyan); border-color: var(--neon-cyan);
+    background: rgba(0,245,255,0.07);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--neon-cyan), var(--neon-orange), transparent);
+  }
+  .exp-card {
+    position: relative;
+    margin-bottom: 32px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute; left: -44px; top: 28px;
+    width: 8px; height: 8px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--neon-cyan);
+  }
+  .exp-card.construction { border-color: rgba(255,107,26,0.3); }
+  .exp-card.construction::before { background: var(--neon-orange); box-shadow: 0 0 10px var(--neon-orange); }
+  .exp-card:hover { transform: translateX(8px); border-color: var(--neon-cyan); background: rgba(0,245,255,0.06); }
+  .exp-card.construction:hover { border-color: var(--neon-orange); background: rgba(255,107,26,0.06); }
+
+  .exp-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 3px;
+    padding: 3px 10px;
+    border-radius: 0;
+    clip-path: polygon(3px 0%, 100% 0%, calc(100% - 3px) 100%, 0% 100%);
+    display: inline-block;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .badge-construction { background: rgba(255,107,26,0.2); color: var(--neon-orange); border: 1px solid rgba(255,107,26,0.4); }
+  .badge-management { background: rgba(0,245,255,0.12); color: var(--neon-cyan); border: 1px solid rgba(0,245,255,0.3); }
+  .badge-research { background: rgba(240,224,64,0.1); color: var(--neon-yellow); border: 1px solid rgba(240,224,64,0.3); }
+  .badge-tech { background: rgba(180,100,255,0.12); color: #c084fc; border: 1px solid rgba(180,100,255,0.3); }
+  .badge-community { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+
+  .exp-company {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #e8edf2;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .exp-role {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--neon-cyan);
+    margin-bottom: 16px;
+  }
+  .exp-card.construction .exp-role { color: var(--neon-orange); }
+
+  .exp-bullets {
+    list-style: none;
+    display: none;
+  }
+  .exp-bullets.open { display: block; }
+  .exp-bullets li {
+    font-size: 0.9rem;
+    color: #8a9bb0;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--neon-cyan);
+    font-size: 0.7rem;
+  }
+  .exp-card.construction .exp-bullets li::before { color: var(--neon-orange); }
+
+  .exp-toggle {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--steel);
+    margin-top: 12px;
+    display: inline-flex; align-items: center; gap: 8px;
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none;
+  }
+  .exp-toggle:hover { color: var(--neon-cyan); }
+  .toggle-arrow { transition: transform 0.3s; display: inline-block; }
+  .toggle-arrow.open { transform: rotate(90deg); }
+
+  /* ─── PROJECTS ─── */
+  #projects { background: var(--dark3); }
+  .proj-container { max-width: 1200px; margin: 0 auto; }
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .proj-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 28px;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .proj-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-orange), var(--neon-cyan));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .proj-card:hover { border-color: rgba(0,245,255,0.4); transform: translateY(-4px); }
+  .proj-card:hover::before { transform: scaleX(1); }
+
+  .proj-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.6rem;
+    color: rgba(0,245,255,0.3);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .proj-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e8edf2;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+  }
+  .proj-cat {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--neon-orange);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* ─── RESEARCH ─── */
+  #research { background: var(--dark2); }
+  .research-container { max-width: 1200px; margin: 0 auto; }
+  .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .research-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .research-card:hover { border-color: var(--neon-cyan); background: rgba(0,245,255,0.05); }
+  .research-idx {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.55rem;
+    color: var(--neon-cyan);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .research-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #cdd5e0;
+    line-height: 1.5;
+  }
+  .research-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--neon-orange);
+    text-decoration: none;
+  }
+  .books-section { margin-top: 60px; }
+  .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+  .book-card {
+    background: var(--glass2);
+    border: 1px solid var(--border2);
+    padding: 24px;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.3s;
+  }
+  .book-card:hover { transform: translateY(-3px); border-color: var(--neon-orange); }
+  .book-icon {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .book-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #cdd5e0;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  /* ─── EDUCATION ─── */
+  #education { background: var(--dark3); }
+  .edu-container { max-width: 1200px; margin: 0 auto; }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .edu-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 28px;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    transition: all 0.3s;
+  }
+  .edu-card:hover { border-color: var(--neon-cyan); }
+  .edu-school {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .edu-degree {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e8edf2;
+    margin-bottom: 16px;
+  }
+  .edu-subjects {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .edu-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border: 1px solid rgba(0,245,255,0.2);
+    color: var(--steel);
+    clip-path: polygon(3px 0%, 100% 0%, calc(100% - 3px) 100%, 0% 100%);
+  }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .cert-card {
+    background: rgba(240,224,64,0.05);
+    border: 1px solid rgba(240,224,64,0.2);
+    padding: 16px 20px;
+    clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);
+    transition: all 0.2s;
+  }
+  .cert-card:hover { border-color: var(--neon-yellow); background: rgba(240,224,64,0.08); }
+  .cert-icon { color: var(--neon-yellow); margin-bottom: 8px; font-size: 1.1rem; }
+  .cert-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #cdd5e0;
+    line-height: 1.4;
+  }
+
+  /* ─── VOLUNTEER ─── */
+  #volunteer { background: var(--dark2); }
+  .vol-container { max-width: 1200px; margin: 0 auto; }
+  .vol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+  .vol-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 24px;
+    clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+    transition: all 0.3s;
+    text-align: center;
+  }
+  .vol-card:hover { border-color: var(--neon-cyan); transform: translateY(-3px); }
+  .vol-org {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    margin-bottom: 6px;
+  }
+  .vol-role {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    color: var(--steel);
+  }
+
+  /* ─── RECOMMENDATIONS ─── */
+  #recommendations { background: var(--dark3); }
+  .rec-container { max-width: 1200px; margin: 0 auto; }
+  .rec-slider-wrap { overflow: hidden; position: relative; }
+  .rec-slider {
+    display: flex; gap: 24px;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .rec-card {
+    min-width: 380px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 32px;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    flex-shrink: 0;
+  }
+  .rec-quote {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    color: var(--neon-cyan);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .rec-text {
+    font-size: 0.95rem;
+    color: #8a9bb0;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .rec-person {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .rec-avatar {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-orange));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700; font-size: 0.7rem;
+    color: var(--dark);
+    flex-shrink: 0;
+  }
+  .rec-info-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #cdd5e0;
+  }
+  .rec-info-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--steel);
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+  .rec-info-link {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-top: 2px;
+    display: block;
+  }
+  .rec-info-link:hover { color: var(--neon-orange); }
+  .slider-controls {
+    display: flex; gap: 12px; margin-top: 32px; justify-content: center;
+  }
+  .slider-btn {
+    width: 44px; height: 44px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    color: var(--neon-cyan);
+    font-size: 1.2rem;
+    cursor: pointer;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .slider-btn:hover { background: rgba(0,245,255,0.1); border-color: var(--neon-cyan); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 60px 48px 40px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .footer-tagline {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--steel);
+    letter-spacing: 4px;
+    margin-bottom: 32px;
+  }
+  .footer-links {
+    display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;
+  }
+  .footer-links a {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--steel);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--neon-cyan); }
+  .footer-copy {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(176,190,197,0.3);
+    letter-spacing: 2px;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Floating particles */
+  .particle {
+    position: fixed;
+    width: 2px; height: 2px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: float linear infinite;
+    opacity: 0;
+  }
+  @keyframes float {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(-10vh) translateX(var(--dx, 20px)); opacity: 0; }
+  }
+
+  /* HUD corner decorations */
+  .hud-corner {
+    position: absolute;
+    width: 40px; height: 40px;
+    border-color: var(--neon-cyan);
+    border-style: solid;
+    opacity: 0.4;
+  }
+  .hud-tl { top: 24px; left: 24px; border-width: 2px 0 0 2px; }
+  .hud-tr { top: 24px; right: 24px; border-width: 2px 2px 0 0; }
+  .hud-bl { bottom: 80px; left: 24px; border-width: 0 0 2px 2px; }
+  .hud-br { bottom: 80px; right: 24px; border-width: 0 2px 2px 0; }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    /* Nav */
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .nav-logo { font-size: 1rem; }
+
+    /* Hamburger menu for mobile */
+    .mob-menu-btn {
+      display: flex; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px;
+    }
+    .mob-menu-btn span {
+      width: 22px; height: 2px;
+      background: var(--neon-cyan); display: block;
+      transition: all .3s;
+    }
+    .mob-nav {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(6,10,15,0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 28px;
+      transform: translateX(100%);
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
+    }
+    .mob-nav.open { transform: translateX(0); }
+    .mob-nav a {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--steel); text-decoration: none;
+      letter-spacing: 3px; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .mob-nav a:hover { color: var(--neon-cyan); }
+    .mob-close {
+      position: absolute; top: 20px; right: 24px;
+      font-size: 1.6rem; color: var(--steel);
+      cursor: pointer; background: none; border: none;
+    }
+
+    /* Hero */
+    section { padding: 80px 20px; }
+    #hero { padding: 100px 20px 80px; }
+    .hero-name { font-size: 2.8rem; letter-spacing: 2px; }
+    .hero-subtitle {
+      font-size: 0.55rem; letter-spacing: 1.5px;
+      display: flex; flex-direction: column;
+      gap: 6px; align-items: center;
+    }
+    .hero-subtitle span { display: none; }
+    .hud-corner { display: none; }
+
+    /* About */
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .profile-card { position: static; }
+    .profile-img-wrap { max-width: 180px; margin: 0 auto 20px; }
+    .stat-row { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat-number { font-size: 1.6rem; }
+
+    /* Skills */
+    .skills-grid { grid-template-columns: 1fr; }
+
+    /* Experience */
+    .exp-filter { gap: 8px; }
+    .filter-btn { font-size: 0.55rem; padding: 6px 14px; }
+    .timeline { padding-left: 24px; }
+    .exp-card { padding: 20px; }
+    .exp-card::before { left: -28px; }
+    .exp-company { font-size: 0.75rem; }
+    .exp-role { font-size: 1rem; }
+
+    /* Projects */
+    .proj-grid { grid-template-columns: 1fr; }
+
+    /* Research */
+    .research-grid { grid-template-columns: 1fr; }
+    .books-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    /* Education */
+    .edu-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Volunteer */
+    .vol-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Recommendations */
+    .rec-card { min-width: 280px; }
+    .rec-slider-wrap { margin: 0 -20px; padding: 0 20px; }
+
+    /* Footer */
+    footer { padding: 40px 20px; }
+    .footer-links { gap: 16px; }
+    .footer-links a { font-size: 0.6rem; }
+
+    /* Section titles */
+    .section-title { font-size: 1.8rem; margin-bottom: 36px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-name { font-size: 2.2rem; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    .books-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .vol-grid { grid-template-columns: 1fr; }
+    .social-row { flex-wrap: wrap; }
+    .exp-card { clip-path: none; border-radius: 4px; }
+    .proj-card { clip-path: none; border-radius: 4px; }
+  }
+
+  /* Show hamburger only on mobile */
+  .mob-menu-btn { display: none; }
+  @media (max-width: 768px) {
+    .mob-menu-btn { display: flex; }
+  }
+
+  /* IndustrCons highlight */
+  .ic-highlight {
+    background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(0,245,255,0.05));
+    border-color: rgba(34,197,94,0.3);
+  }
+  .ic-highlight .exp-role { color: #4ade80; }
+  .ic-highlight::before { background: #4ade80; box-shadow: 0 0 10px #4ade80; }
+  .ic-stat {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #4ade80;
+    margin-top: 12px;
+  }
 </style>
 </head>
 <body>
-<div class="gridbg"></div>
 
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Particles -->
+<div id="particles"></div>
+
+<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#hero">EA // CONSTRUCT</a>
+  <a class="nav-logo" href="#hero">EA<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#construction">Field</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#research">Research</a></li>
-    <li><a href="#industcons">IndustrCons</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#recommendations">Reviews</a></li>
   </ul>
-  <div class="nav-dot">OPEN TO WORK · BAKU</div>
+  <div class="mob-menu-btn" onclick="openMobNav()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<!-- Mobile nav overlay -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMobNav()">✕</button>
+  <a href="#about" onclick="closeMobNav()">About</a>
+  <a href="#skills" onclick="closeMobNav()">Skills</a>
+  <a href="#experience" onclick="closeMobNav()">Experience</a>
+  <a href="#projects" onclick="closeMobNav()">Projects</a>
+  <a href="#research" onclick="closeMobNav()">Research</a>
+  <a href="#education" onclick="closeMobNav()">Education</a>
+  <a href="#recommendations" onclick="closeMobNav()">Reviews</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-vline"></div>
-  <div class="hero-left">
-    <div class="hero-eyebrow">CHANGE TO CHANGE</div>
-    <div class="hero-name">ELVIN<br><span class="stroke">ASGAR</span></div>
-    <div class="hero-tagline">// INDUSTRIAL ENGINEER · BUILDER · RESEARCHER</div>
-    <div class="hero-roles">
-      <div class="hero-role">Site / Construction Engineer</div>
-      <div class="hero-role">Quantity Surveyor & Planning Engineer</div>
-      <div class="hero-role">Industrial Engineer</div>
-      <div class="hero-role">Event Project Manager</div>
-      <div class="hero-role">Young Researcher</div>
-      <div class="hero-role">Founder — IndustrCons</div>
+  <canvas id="bim-canvas"></canvas>
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
+  <div class="hud-corner hud-tl"></div>
+  <div class="hud-corner hud-tr"></div>
+  <div class="hud-corner hud-bl"></div>
+  <div class="hud-corner hud-br"></div>
+
+  <div class="hero-content">
+    <span class="hero-tag">// change to change</span>
+    <h1 class="hero-name">
+      <span class="first">ELVIN</span>
+      <span class="last glitch" data-text="ASGAROV">ASGAROV</span>
+    </h1>
+    <div class="hero-subtitle">
+      Site/Construction Engineer
+      <span>|</span>
+      Event Project Manager
+      <span>|</span>
+      Young Researcher
+      <span>|</span>
+      Industrial Engineer
+      <span>|</span>
+      Founder
     </div>
-    <p class="hero-about">Industrial Engineering graduate with hands-on experience in construction site supervision, infrastructure projects, bridge engineering, and international energy projects. Passionate about lean construction, smart infrastructure, urban mobility, and data-driven planning.</p>
     <div class="hero-cta">
-      <a href="#construction" class="btn-y">View Field Work</a>
-      <a href="#contact" class="btn-ghost">Get in Touch</a>
-    </div>
-    <div class="hero-stats">
-      <div><div class="stat-n">26+</div><div class="stat-l">Projects</div></div>
-      <div><div class="stat-n">15K+</div><div class="stat-l">LinkedIn</div></div>
-      <div><div class="stat-n">6</div><div class="stat-l">Publications</div></div>
-      <div><div class="stat-n">1K+</div><div class="stat-l">IndustrCons</div></div>
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="#projects" class="btn-outline">Projects</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="photo-frame">
-      <div class="photo-tag">ENGINEER</div>
-      <img src="photo.png" alt="Elvin Asgar"/>
+
+  <div class="scroll-ind">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">01 — Profile</div>
+    <h2 class="section-title">About <span class="accent">Me</span></h2>
+
+    <div class="about-grid">
+      <div class="profile-card reveal">
+        <div class="profile-img-wrap" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,245,255,0.06),rgba(255,107,26,0.04));aspect-ratio:1;">
+          <div style="font-family:'Orbitron',monospace;font-size:4rem;font-weight:900;color:var(--neon-cyan);letter-spacing:4px;opacity:0.6;user-select:none;">EA</div>
+        </div></div>
+        <div class="profile-name">ELVIN ASGAROV</div>
+        <div class="profile-title">// CONSTRUCTION & INDUSTRIAL ENGINEER</div>
+        <div class="profile-contacts">
+          <div class="contact-item">
+            <span class="ci-icon">📧</span>
+            <span><a href="mailto:elvinasgarov12@gmail.com">elvinasgarov12@gmail.com</a><br><a href="mailto:elvinasgar@yahoo.com">elvinasgar@yahoo.com</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📱</span>
+            <span><a href="tel:+994775889727">+994 77 588 97 27</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">🔬</span>
+            <span><a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank">ResearchGate Profile</a></span>
+          </div>
+        </div>
+        <div class="social-row">
+          <a class="social-btn" href="https://www.linkedin.com/in/elvinasgarov" target="_blank">LinkedIn</a>
+          <a class="social-btn" href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank">IndustrCons</a>
+          <a class="social-btn" href="https://www.linkedin.com/company/tedx-infinity/" target="_blank">TEDx</a>
+        </div>
+        <div class="social-row">
+          <a class="social-btn" href="#" target="_blank">YouTube</a>
+          <a class="social-btn" href="#" target="_blank">TikTok</a>
+          <a class="social-btn" href="#" target="_blank">Facebook</a>
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <p>Industrial Engineer with practical experience in <strong>construction site supervision</strong>, infrastructure projects, and project coordination. Passionate about lean construction, smart infrastructure systems, urban mobility, and transportation development.</p>
+        <p>Experienced in field operations, technical reporting, <strong>reinforcement and concrete supervision</strong>, and multidisciplinary engineering coordination.</p>
+        <p>Focused on integrating industrial engineering principles into modern construction management and public transportation systems. Actively researching <strong>smart city solutions</strong>, transport optimization, and data-driven infrastructure planning to support more efficient and sustainable urban development.</p>
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Companies</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1K+</div>
+            <div class="stat-label">Community</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">8+</div>
+            <div class="stat-label">Research Papers</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Books</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">510m</div>
+            <div class="stat-label">Bridge (Lachin)</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker">QATARENERGY EPC-1 &nbsp;◆&nbsp; LACHIN BRIDGE 510M &nbsp;◆&nbsp; AZAL T2/5 &nbsp;◆&nbsp; SOCAR CRUDE OIL REFINERY &nbsp;◆&nbsp; PASHA HOLDING &nbsp;◆&nbsp; SEA BREEZE &nbsp;◆&nbsp; McKINSEY AZERBAIJAN &nbsp;◆&nbsp; SITHALCAY 2 ELECTRICAL &nbsp;◆&nbsp; JTI · EY · PASHA INSURANCE &nbsp;◆&nbsp; FREYSSINET BRIDGE &nbsp;◆&nbsp; QATARENERGY EPC-1 &nbsp;◆&nbsp; LACHIN BRIDGE 510M &nbsp;◆&nbsp; AZAL T2/5 &nbsp;◆&nbsp; SOCAR CRUDE OIL REFINERY &nbsp;◆&nbsp; PASHA HOLDING &nbsp;◆&nbsp; SEA BREEZE &nbsp;◆&nbsp; McKINSEY AZERBAIJAN &nbsp;◆&nbsp; SITHALCAY 2 ELECTRICAL &nbsp;◆&nbsp; JTI · EY · PASHA INSURANCE &nbsp;◆&nbsp; FREYSSINET BRIDGE &nbsp;◆&nbsp;</div>
-</div>
-
-<!-- CONSTRUCTION -->
-<div id="construction">
-<div class="wrap">
-  <div class="sec-head rv"><span class="sec-n">01</span><h2 class="sec-t">CONSTRUCTION <span>FIELD</span></h2></div>
-  <div class="grid2">
-    <div class="card full bridge-bg rv">
-      <div class="ctag">INFRASTRUCTURE · BRIDGE · LACHIN CORRIDOR</div>
-      <div class="ctit">Civil Incremental Engineer — Freyssinet Azerbaijan</div>
-      <div class="cco">FALCOM LLC · LACHIN PROJECT · 510M BRIDGE</div>
-      <ul class="clist">
-        <li>510-metre bridge supervision — 100m incremental launch segment; mechanism control system analysis</li>
-        <li>C45/55 concrete (100-year service life) in approach viaducts; C35/37 high early strength (50-year) in main viaducts</li>
-        <li>T-shape side tensioning monitoring; segment construction every 15–20 days via leg-mounted launching gantry</li>
-        <li>Dynamic design control; front beak and traction beam equipment oversight</li>
-        <li>Push-drive operation management — K13, K15, KM 58+712, KM 72+835.62, Lachin Airport Bridge</li>
-      </ul>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-wrapper">
+    <div class="section-label">02 — Expertise</div>
+    <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
+    <div class="skills-grid">
+      <div class="reveal">
+        <div class="skill-group-title">Construction & Engineering</div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Construction Site Mgmt</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Reinforced Concrete</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Technical Documentation</span><span class="skill-pct">92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.92"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Quantity Surveying</span><span class="skill-pct">78%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.78"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">AutoCAD</span><span class="skill-pct">70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.70"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Navisworks</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">SketchUp</span><span class="skill-pct">50%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.50"></div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="skill-group-title">Project Management</div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Project Planning</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Project Management</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">MS Project</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Primavera P6</span><span class="skill-pct">60%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.60"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Event Management</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Research & Analysis</span><span class="skill-pct">83%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.83"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">MS Office</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:0.80"></div></div>
+        </div>
+      </div>
     </div>
-    <div class="card rv">
-      <div class="ctag">CIVIL · SITE SUPERVISION</div>
-      <div class="ctit">Civil / Construction Engineer</div>
-      <div class="cco">FALCOM LLC</div>
-      <ul class="clist">
-        <li>Daily site supervision and construction monitoring</li>
-        <li>Reinforcement stock control and concrete casting inspection</li>
-        <li>Pile supervision — depth monitoring, concreting, reporting</li>
-        <li>Liaison with contractors, subcontractors, and PMs</li>
-        <li>HSE coordination and workforce safety instructions</li>
-        <li>Daily, weekly, monthly progress reports</li>
-      </ul>
-    </div>
-    <div class="card rv">
-      <div class="ctag">FIT-OUT · CORPORATE · INTERIOR</div>
-      <div class="ctit">Site Engineer</div>
-      <div class="cco">AMINA AND S GROUP</div>
-      <ul class="clist">
-        <li>AZAL T2/5 · AZAL Terminal 2 Floor 5 · AZAL-NAA Training Center · AZAL-AZANS Conference Room</li>
-        <li>EY Office · JTI Office · McKinsey Azerbaijan · PASHA Holding / Insurance / Life · Medicine Shop</li>
-        <li>Primavera P6 monitoring, delay tracking</li>
-        <li>Material receipt, stock control, SIMA registration</li>
-      </ul>
-    </div>
-    <div class="card full rv">
-      <div class="ctag">TECHNICAL OFFICE · ENERGY · ELECTRICAL</div>
-      <div class="ctit">Junior Technical Office Engineer</div>
-      <div class="cco">AVENSOL LLC · SITHALCAY 2 · SEA BREEZE · SOCAR CRUDE OIL REFINERY</div>
-      <ul class="clist">
-        <li>Daily site reports — progress tracking between site and technical office</li>
-        <li>Technical drawing review, revision and distribution to site teams</li>
-        <li>Document circulation control — version accuracy across departments</li>
-        <li>Daily/weekly/monthly material demand orders</li>
-        <li>RFI document preparation; AutoCAD mark-ups and drafting</li>
-        <li>HSE coordination — new employee information sharing</li>
-      </ul>
-    </div>
-    <div class="card rv">
-      <div class="ctag">INTERNATIONAL · ENERGY · EPC</div>
-      <div class="ctit">Quantity Surveyor & Planning Engineer</div>
-      <div class="cco">MAF GROUP LLC · QATARENERGY EPC-1 · 2026</div>
-      <ul class="clist">
-        <li>General Works for Offsites 2 — North Field East Onshore Project (EPC-1)</li>
-        <li>Cable tray, Cathodic Protection, Earthing, Electrical Conduit, Telecom, Transformers</li>
-        <li>SJB SYSTEM 60 Fresh Water area — data prep, volume acquisition, spec compliance</li>
-        <li>Oil tank reconstruction planning phase — data collection and Excel estimates</li>
-      </ul>
-    </div>
-    <div class="card rv">
-      <div class="ctag">PLANNING & REPORTING</div>
-      <div class="ctit">Junior Planning & Reporting Specialist</div>
-      <div class="cco">SCOPE CONSULTING LLC</div>
-      <ul class="clist">
-        <li>Intern → Junior Specialist progression</li>
-        <li>Primavera P6 and MS Project — monitoring and delay reporting</li>
-        <li>Delay analysis and early preventive measures</li>
-        <li>Coordination between PM and subcontractor managers</li>
-      </ul>
+    <div class="tag-cloud reveal" style="margin-top:48px;">
+      <span class="skill-tag">HSE Coordination</span>
+      <span class="skill-tag">BIM / Digital Twin</span>
+      <span class="skill-tag">RFI Preparation</span>
+      <span class="skill-tag">Post-Tensioning</span>
+      <span class="skill-tag">Lean Construction</span>
+      <span class="skill-tag">Smart Infrastructure</span>
+      <span class="skill-tag">Urban Mobility</span>
+      <span class="skill-tag">Transport Optimization</span>
+      <span class="skill-tag">Odoo ERP</span>
+      <span class="skill-tag">ClickUp</span>
+      <span class="skill-tag">Bitrix24</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Excel / Data</span>
+      <span class="skill-tag">Agile / PMO</span>
+      <span class="skill-tag">CRM Tools</span>
+      <span class="skill-tag">Leadership</span>
+      <span class="skill-tag">Supply Chain</span>
+      <span class="skill-tag">Optimization</span>
     </div>
   </div>
-</div>
-</div>
+</section>
 
-<!-- OTHER EXP -->
-<div class="dark-section">
-<div class="wrap">
-  <div class="sec-head rv"><span class="sec-n">02</span><h2 class="sec-t">OTHER <span>EXPERIENCE</span></h2></div>
-  <div class="ogrid rv">
-    <div class="ocard"><div class="orole">Organizer & Event Manager</div><div class="oco">TEDX INFINITY · Nov 2025–Present</div></div>
-    <div class="ocard"><div class="orole">Founder</div><div class="oco">INDUSTCONS · Nov 2025–Present</div></div>
-    <div class="ocard"><div class="orole">Graduate Researcher</div><div class="oco">FREELANCE · Mar 2023–Present</div></div>
-    <div class="ocard"><div class="orole">IT Project Mgmt Intern</div><div class="oco">BUTA GROUP AZERBAIJAN</div></div>
-    <div class="ocard"><div class="orole">Project Event Manager</div><div class="oco">HPN ACADEMY</div></div>
-    <div class="ocard"><div class="orole">Production Site Eng. Intern</div><div class="oco">AZƏRTEXNOLAYİN LLC</div></div>
-    <div class="ocard"><div class="orole">Digital Marketing Intern</div><div class="oco">BUTA GROUP AZERBAIJAN</div></div>
-    <div class="ocard"><div class="orole">Sales Representative</div><div class="oco">ATƏŞGAHInsurance</div></div>
-    <div class="ocard"><div class="orole">Technician</div><div class="oco">KONTAKT HOME</div></div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="exp-container">
+    <div class="section-label">03 — Career</div>
+    <h2 class="section-title">Work <span class="accent">Experience</span></h2>
+    <div class="exp-filter">
+      <button class="filter-btn active" onclick="filterExp('all', this)">All</button>
+      <button class="filter-btn" onclick="filterExp('construction', this)">Construction</button>
+      <button class="filter-btn" onclick="filterExp('management', this)">Management</button>
+      <button class="filter-btn" onclick="filterExp('research', this)">Research</button>
+      <button class="filter-btn" onclick="filterExp('tech', this)">Tech</button>
+    </div>
+
+    <div class="timeline" id="exp-timeline">
+
+      <!-- Falcom - Construction Engineer (MAIN) -->
+      <div class="exp-card construction reveal" data-cat="construction">
+        <span class="exp-badge badge-construction">Construction</span>
+        <div class="exp-company">FALCOM LLC</div>
+        <div class="exp-role">Construction / Civil / Site Engineer</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li>Site supervision and daily construction monitoring</li>
+          <li>Coordination of workforce and subcontractors</li>
+          <li>Reinforcement and concrete inspection and quality control</li>
+          <li>Daily, weekly, and monthly reporting and documentation</li>
+          <li>Technical drawing review, mark-ups, and AutoCAD field updates</li>
+          <li>RFI preparation support</li>
+          <li>HSE coordination and safety monitoring</li>
+          <li>Supervision of dug piles — monitoring depth, concreting, and reporting to site manager</li>
+          <li>Calculating concrete reinforcement and overseeing concrete delivery</li>
+          <li>Liaison with contractor/subcontractor Foremen and project managers</li>
+        </ul>
+      </div>
+
+      <!-- Freyssinet / K13 Bridge -->
+      <div class="exp-card construction reveal" data-cat="construction">
+        <span class="exp-badge badge-construction">Bridge Engineering</span>
+        <div class="exp-company">FREYSSINET AZERBAIJAN / FALCOM LLC</div>
+        <div class="exp-role">Civil Incremental Bridge Engineer — Lachin Project</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li>Supervised the Gantry (Gaga) mechanism on a 510-metre bridge — joined for 100 metres of construction</li>
+          <li>Monitored T-shape side tensioning with specialized equipment; controlled process segment by segment (every 15–20 days)</li>
+          <li>Oversaw C45/55 class concrete (100-year service life) for approach viaducts and C35/37 concrete for main viaducts</li>
+          <li>Dynamic design control and construction method equipment (front beak, traction beams) design and supply</li>
+          <li>Push-drive operation management</li>
+          <li>Coordinated the Freyssinet international team alongside Falcom LLC site operations</li>
+        </ul>
+      </div>
+
+      <!-- Amina S Group -->
+      <div class="exp-card construction reveal" data-cat="construction">
+        <span class="exp-badge badge-construction">Fit-Out / Site</span>
+        <div class="exp-company">AMINA & S GROUP</div>
+        <div class="exp-role">Site Engineer</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li>Managed and oversaw all fit-out activities on-site; organized work crews and assigned tasks</li>
+          <li>Ensured compliance with project specifications, drawings, and regulations</li>
+          <li>Prepared and maintained project documents, reports, and compliance records</li>
+          <li>Facilitated client delivery of completed fit-out spaces</li>
+          <li>Enforced HSE regulations and maintained safe working environment</li>
+          <li>Conducted personnel work, SIMA registration, and initial application acceptance</li>
+          <li>Received and controlled field materials and stock orders</li>
+          <li>Monitored project progress through Primavera P6 and tracked delayed work</li>
+          <li>Coordinated with engineering and supervisory staff of client and consulting companies</li>
+        </ul>
+      </div>
+
+      <!-- Avensol -->
+      <div class="exp-card construction reveal" data-cat="construction">
+        <span class="exp-badge badge-construction">Technical Office</span>
+        <div class="exp-company">AVENSOL LLC</div>
+        <div class="exp-role">Junior Technical Office Engineer</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li>Prepared daily site reports and coordinated progress tracking between site and technical office</li>
+          <li>Reviewed, updated, and distributed technical drawings to site teams</li>
+          <li>Controlled document and drawing circulation — version accuracy and department distribution</li>
+          <li>Supported workforce attendance scheduling and related documentation</li>
+          <li>Assisted new employee onboarding from acceptance to field deployment</li>
+          <li>Prepared and issued daily, weekly, and monthly material demand orders</li>
+          <li>Monitored company vehicles and maintained fuel logs; reported issues to transport department</li>
+          <li>Assisted in RFI document preparation per quality control requirements</li>
+          <li>Performed mark-ups and AutoCAD drafting based on site feedback and approved revisions</li>
+          <li>Supported HSE coordination by sharing new employee info with main HSE department</li>
+        </ul>
+      </div>
+
+      <!-- MAF Group / Qatar -->
+      <div class="exp-card construction reveal" data-cat="construction">
+        <span class="exp-badge badge-construction">QS / Planning</span>
+        <div class="exp-company">MAF GROUP LLC</div>
+        <div class="exp-role">Quantity Surveyor & Planning Engineer</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li>General Works for Offsites 2 — North Field East Onshore Project (EPC-1) — QATARENERGY</li>
+          <li>Cable tray, cathodic protection, earthing, electrical conduit, telecom lines, transformers, instrument cable transit</li>
+          <li>ARRANGEMENT SJB SYSTEM 60 — FRESH WATER area data preparation, drawing information collection, volume acquisition</li>
+          <li>Specification compliance checking and data transfer</li>
+        </ul>
+      </div>
+
+      <!-- Scope Consulting -->
+      <div class="exp-card reveal" data-cat="construction management">
+        <span class="exp-badge badge-management">Planning</span>
+        <div class="exp-company">SCOPE CONSULTING LLC</div>
+        <div class="exp-role">Planning & Reporting Intern → Junior Planning & Reporting Specialist</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li><strong style="color:var(--neon-cyan)">Intern:</strong> Assisted in project monitoring, reporting, documentation management, BOQ preparation, and fit-out coordination during the final stages of major construction projects, while supporting project close-out activities and quality inspections</li>
+          <li><strong style="color:var(--neon-cyan)">Junior Specialist:</strong> Managed project reporting, BOQs, scheduling, workforce analysis, and site coordination across multiple projects while ensuring compliance with HSE standards, project quality requirements, and efficient communication with stakeholders</li>
+        </ul>
+      </div>
+
+      <!-- TEDx -->
+      <div class="exp-card reveal" data-cat="management">
+        <span class="exp-badge badge-management">Event Management</span>
+        <div class="exp-company">TEDX INFINITY</div>
+        <div class="exp-role">Organizer & Project Event Manager</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li>Managed communication and coordination with event sponsors for smooth collaboration and on-site execution</li>
+          <li>Led and coordinated volunteers and interns, assigning tasks and building project management skills</li>
+          <li>Planned and controlled event timeline and run-of-show, ensuring smooth transitions throughout</li>
+          <li>Designed and structured event presentations and visual materials aligned with TEDx standards</li>
+          <li>Curated and managed music flow throughout the event for atmosphere and audience engagement</li>
+          <li>Planned and monitored event budget and progress against timelines and objectives</li>
+          <li>Oversaw risk management, resolving operational issues in real time</li>
+          <li>Coordinated speakers, schedules, and meetings with TEDx officials in compliance with requirements</li>
+          <li>Venues: Baku Engineering University & MUSİAD Azerbaijan</li>
+        </ul>
+      </div>
+
+      <!-- IndustrCons Founder -->
+      <div class="exp-card ic-highlight reveal" data-cat="management">
+        <span class="exp-badge badge-community">Community</span>
+        <div class="exp-company">INDUSTRCONS</div>
+        <div class="exp-role">Founder</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW DETAILS</div>
+        <ul class="exp-bullets">
+          <li>Built a platform divided into multiple directions — starting with supporting job seekers in and outside construction</li>
+          <li>Created a WhatsApp Community with 3 main channels: HR Network (construction HRs only), All Vacancies, and Construction Jobs</li>
+          <li>Additional specialised groups: MEP, Topographer-Geodesy, Masters (Craftsmen), and a Discussion Group</li>
+          <li>Community members can share vacancies, CVs, and connect with employers quickly</li>
+          <li>Community now exceeds 1000+ active members</li>
+          <li><a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank" style="color:var(--neon-cyan)">Join the Community →</a></li>
+        </ul>
+        <div class="ic-stat">1000+ Members</div>
+      </div>
+
+      <!-- Graduate Researcher -->
+      <div class="exp-card reveal" data-cat="research">
+        <span class="exp-badge badge-research">Research</span>
+        <div class="exp-company">Graduate Research</div>
+        <div class="exp-role">Graduate Student Researcher</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESEARCH AREAS</div>
+        <ul class="exp-bullets">
+          <li>Real Analysis: Conducted in-depth research in various fields focusing on practical applications</li>
+          <li>Designed and administered surveys to gather insights from participants</li>
+          <li>Research Areas: Industrial Engineering (efficiency & productivity), Public Transportation (transit system solutions), Construction (methods & best practices), Optimization (processes & resource allocation)</li>
+        </ul>
+      </div>
+
+      <!-- HPN Academy -->
+      <div class="exp-card reveal" data-cat="management">
+        <span class="exp-badge badge-management">Events</span>
+        <div class="exp-company">HPN ACADEMY</div>
+        <div class="exp-role">Project Event Manager</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li>Event planning and execution</li>
+          <li>Consistently provided updates to ensure plans aligned with event success goals</li>
+          <li>Assigned tasks to employees; reviewed daily progress reports</li>
+          <li>Volunteer recruitment and management</li>
+          <li>Met with sponsors to present event plans and suggestions</li>
+          <li>Instagram and LinkedIn optimization and channel growth</li>
+          <li>Conducted phone sales and client outreach for trainings and seminars</li>
+          <li>Provided venue suggestions for training events</li>
+          <li>Reported regularly to CEO and Director on progress</li>
+        </ul>
+      </div>
+
+      <!-- Buta Group IT PM -->
+      <div class="exp-card reveal" data-cat="tech">
+        <span class="exp-badge badge-tech">IT / ERP</span>
+        <div class="exp-company">BUTA GROUP AZERBAIJAN</div>
+        <div class="exp-role">IT Project Management Intern</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li>Worked with ERP systems, especially Odoo</li>
+          <li>Used project management tools: ClickUp, Bitrix24, Trello</li>
+          <li>Managed and tracked tasks using Bitrix24 and Odoo</li>
+          <li>Built an ERP system and created a new website using Odoo</li>
+          <li>Created visual diagrams for data analysis and reporting</li>
+          <li>Collected and analyzed data using Excel and Python; created dashboards</li>
+        </ul>
+      </div>
+
+      <!-- Ders Evi & Teaching Academy -->
+      <div class="exp-card reveal" data-cat="management">
+        <span class="exp-badge badge-management">Project Coordination</span>
+        <div class="exp-company">DERS EVI & TEACHING ACADEMY</div>
+        <div class="exp-role">Project Coordinator — Educational Project</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW RESPONSIBILITIES</div>
+        <ul class="exp-bullets">
+          <li>Supported project planning, reporting, coordination, and administrative operations</li>
+          <li>Tracked project performance, prepared activity reports, managed schedules and timelines</li>
+          <li>Conducted research and assisted communication between management, staff, customers, and partners</li>
+          <li>Contributed to marketing activities, social media management, and budget forecasting</li>
+          <li>Supported event coordination and overall project execution</li>
+        </ul>
+      </div>
+
+      <!-- Other roles -->
+      <div class="exp-card reveal" data-cat="tech management">
+        <span class="exp-badge badge-tech">Additional Roles</span>
+        <div class="exp-company">Various Organizations</div>
+        <div class="exp-role">Earlier Experience</div>
+        <div class="exp-toggle" onclick="toggleExp(this)"><span class="toggle-arrow">▶</span> VIEW ROLES</div>
+        <ul class="exp-bullets">
+          <li><strong style="color:var(--steel)">Kontakt Home</strong> — Technician</li>
+          <li><strong style="color:var(--steel)">Azertexnolayn LLC</strong> — Production Site Engineer Intern</li>
+          <li><strong style="color:var(--steel)">Buta Group Azerbaijan</strong> — Digital Marketing Intern</li>
+          <li><strong style="color:var(--steel)">Atəşgah Insurance Company</strong> — Sales Representative Intern</li>
+          <li><strong style="color:var(--steel)">Zafar Kursları</strong> — Exam Controller</li>
+          <li><strong style="color:var(--steel)">Sadarak S/C</strong> — Seller and Delivery</li>
+        </ul>
+      </div>
+
+    </div>
   </div>
-</div>
-</div>
+</section>
 
 <!-- PROJECTS -->
-<div id="projects">
-<div class="wrap">
-  <div class="sec-head rv"><span class="sec-n">03</span><h2 class="sec-t">PROJECT <span>LOG</span></h2></div>
-  <table class="ptable rv">
-    <tbody>
-      <tr><td>P-001</td><td>General Works for Offsites 2 – North Field East Onshore (EPC-1) – QATARENERGY</td><td>INTL · ENERGY</td></tr>
-      <tr><td>P-002</td><td>Neft Kəmərləri – РВСПК-20000m3 Oil Tank Reconstruction</td><td>ENERGY</td></tr>
-      <tr><td>P-003</td><td>K13 Bridge – Push-Slide Stretching (Lachin)</td><td>INFRA</td></tr>
-      <tr><td>P-004</td><td>K15 Bridge Mini Pile Works (Lachin)</td><td>INFRA</td></tr>
-      <tr><td>P-005</td><td>KM 58+712 6x4.5 Culvert (Lachin)</td><td>INFRA</td></tr>
-      <tr><td>P-006</td><td>KM 72+835.62 Culvert (Lachin)</td><td>INFRA</td></tr>
-      <tr><td>P-007</td><td>Lachin Airport Bridge – Push-Slide Stretching</td><td>INFRA</td></tr>
-      <tr><td>P-008</td><td>Sithalcay 2 – Electrical Project</td><td>ENERGY</td></tr>
-      <tr><td>P-009</td><td>Sea Breeze – Sea Surface Earthing</td><td>ENERGY</td></tr>
-      <tr><td>P-010</td><td>SOCAR Crude Oil Refinery</td><td>ENERGY</td></tr>
-      <tr><td>P-011</td><td>AZAL Office T2/5</td><td>FIT-OUT</td></tr>
-      <tr><td>P-012</td><td>Roofing & Slate – AZAL Terminal 2 Floor 5</td><td>FIT-OUT</td></tr>
-      <tr><td>P-013</td><td>AZAL – NAA Training Center</td><td>FIT-OUT</td></tr>
-      <tr><td>P-014</td><td>AZAL – AZANS Conference Room</td><td>FIT-OUT</td></tr>
-      <tr><td>P-015</td><td>EY Office</td><td>FIT-OUT</td></tr>
-      <tr><td>P-016</td><td>JTI Office PbW</td><td>FIT-OUT</td></tr>
-      <tr><td>P-017</td><td>PASHA Holding Offices</td><td>FIT-OUT</td></tr>
-      <tr><td>P-018</td><td>Pasha Insurance Offices</td><td>FIT-OUT</td></tr>
-      <tr><td>P-019</td><td>Pasha Life Offices</td><td>FIT-OUT</td></tr>
-      <tr><td>P-020</td><td>McKinsey and Company Azerbaijan Office</td><td>FIT-OUT</td></tr>
-      <tr><td>P-021</td><td>"Medicine" Shop – Cresent/Pasha Malls</td><td>FIT-OUT</td></tr>
-      <tr><td>P-022</td><td>TEDx Project – BEU & MUSİAD Azerbaijan</td><td>EVENT</td></tr>
-      <tr><td>P-023</td><td>IndustrCons Platform</td><td>PLATFORM</td></tr>
-    </tbody>
-  </table>
-</div>
-</div>
+<section id="projects">
+  <div class="proj-container">
+    <div class="section-label">04 — Portfolio</div>
+    <h2 class="section-title">Key <span class="accent">Projects</span></h2>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-001</div>
+        <div class="proj-name">General Works for Offsites 2 — North Field East Onshore Project (EPC-1)</div>
+        <div class="proj-cat">QatarEnergy · Quantity Surveying</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-002</div>
+        <div class="proj-name">K13 Bridge — Push-Slide Stretching (Lachin Project)</div>
+        <div class="proj-cat">Bridge Engineering · Post-Tensioning</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-003</div>
+        <div class="proj-name">Lachin Airport Bridge — Push-Slide Stretching</div>
+        <div class="proj-cat">Bridge Engineering · Infrastructure</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-004</div>
+        <div class="proj-name">K15 Bridge — Mini Pile Works (Lachin Project)</div>
+        <div class="proj-cat">Foundation Engineering</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-005</div>
+        <div class="proj-name">KM 58+712 — 6×4.5 Culvert (Lachin)</div>
+        <div class="proj-cat">Civil Infrastructure</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-006</div>
+        <div class="proj-name">KM 72+835.62 — Culvert (Lachin)</div>
+        <div class="proj-cat">Civil Infrastructure</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-007</div>
+        <div class="proj-name">Neft Kəmərləri — PBCПK-20000m³ Oil Tank Reconstruction (No. 21)</div>
+        <div class="proj-cat">Industrial / Oil & Gas</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-008</div>
+        <div class="proj-name">AZAL Office T2/5 & Roofing Renovation — Terminal 2 Floor 5</div>
+        <div class="proj-cat">Fit-Out / Aviation</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-009</div>
+        <div class="proj-name">AZAL — NAA Training Center Project</div>
+        <div class="proj-cat">Fit-Out / Aviation</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-010</div>
+        <div class="proj-name">AZAL — AZANS Conference Room</div>
+        <div class="proj-cat">Interior / Aviation</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-011</div>
+        <div class="proj-name">Sithalcay 2 — Electrical Project</div>
+        <div class="proj-cat">Electrical Infrastructure</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-012</div>
+        <div class="proj-name">Sea Breeze — Continued Sphere (Sea Surface Earthing)</div>
+        <div class="proj-cat">Electrical / Grounding</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-013</div>
+        <div class="proj-name">SOCAR Crude Oil Refinery</div>
+        <div class="proj-cat">Industrial / Energy</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-014</div>
+        <div class="proj-name">EY Office</div>
+        <div class="proj-cat">Commercial Fit-Out</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-015</div>
+        <div class="proj-name">JTI Office PbW</div>
+        <div class="proj-cat">Commercial Fit-Out</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-016</div>
+        <div class="proj-name">PASHA Holding Offices</div>
+        <div class="proj-cat">Corporate Fit-Out</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-017</div>
+        <div class="proj-name">Pasha Insurance & Pasha Life Offices</div>
+        <div class="proj-cat">Corporate Fit-Out</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-018</div>
+        <div class="proj-name">McKinsey and Company — Azerbaijan Office</div>
+        <div class="proj-cat">Corporate Fit-Out</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-019</div>
+        <div class="proj-name">"Medicine" Shop — Crescent/Pasha Malls</div>
+        <div class="proj-cat">Retail Fit-Out</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-number">PRJ-020</div>
+        <div class="proj-name">TEDx Infinity — Event Project</div>
+        <div class="proj-cat">Event Management · BEU & MUSİAD Azerbaijan</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- RESEARCH -->
-<div id="research" class="dark-section">
-<div class="wrap">
-  <div class="sec-head rv"><span class="sec-n">04</span><h2 class="sec-t">RESEARCH <span>& PUBLICATIONS</span></h2></div>
-  <div class="rgrid rv">
-    <div class="rcard"><div class="rnum">01</div><div class="rtit">Bridge in Khirdalan: Traffic Flow Change Approach and Numerical & Cost Optimization</div><div class="rtag">INFRASTRUCTURE · OPTIMIZATION</div></div>
-    <div class="rcard"><div class="rnum">02</div><div class="rtit">Single Card System in Azerbaijan: Importance & Optimal Card Offer for All Public Transport</div><div class="rtag">PUBLIC TRANSPORT · POLICY</div></div>
-    <div class="rcard"><div class="rnum">03</div><div class="rtit">Proposed Bus Routes Between Baku and Sumgayit: Cost Analysis, Network Design & Travel Times</div><div class="rtag">URBAN MOBILITY · NETWORK</div></div>
-    <div class="rcard"><div class="rnum">04</div><div class="rtit">Push-Pull Post-Tensioned Bridges: New Generation Infrastructure in Lachin</div><div class="rtag">BRIDGE · POST-TENSION</div></div>
-    <div class="rcard"><div class="rnum">05</div><div class="rtit">AI-Driven Lean Construction: Integrating Industrial Engineering into Modern Construction Management</div><div class="rtag">AI · LEAN · IND. ENG.</div></div>
-    <div class="rcard"><div class="rnum">06</div><div class="rtit">Synchronization of Express Lines in Public Transportation Development</div><div class="rtag">TRANSIT · OPTIMIZATION</div></div>
-  </div>
+<section id="research">
+  <div class="research-container">
+    <div class="section-label">05 — Academia</div>
+    <h2 class="section-title">Research & <span class="accent">Publications</span></h2>
+    <div class="research-grid reveal">
+      <div class="research-card">
+        <div class="research-idx">PAPER 01</div>
+        <div class="research-title">Bridge that can be created in Khirdalan city, traffic flow change approach and numerical and cost optimization</div>
+        <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank" class="research-link">→ ResearchGate</a>
+      </div>
+      <div class="research-card">
+        <div class="research-idx">PAPER 02</div>
+        <div class="research-title">The importance of changing the card system in Azerbaijan to a single card system and the optimal card offer for use in all types of public transport</div>
+        <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank" class="research-link">→ ResearchGate</a>
+      </div>
+      <div class="research-card">
+        <div class="research-idx">PAPER 03</div>
+        <div class="research-title">Proposed Bus Routes Between Baku and Sumgayit: Cost Analysis, Network Design, and Estimated Travel Times</div>
+        <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank" class="research-link">→ ResearchGate</a>
+      </div>
+      <div class="research-card">
+        <div class="research-idx">PAPER 04</div>
+        <div class="research-title">Construction of Push-Pull Post-Tensioned Bridges: New Generation Infrastructure in Lachin</div>
+        <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank" class="research-link">→ ResearchGate</a>
+      </div>
+      <div class="research-card">
+        <div class="research-idx">PAPER 05</div>
+        <div class="research-title">Artificial Intelligence-Driven Lean Construction: Integrating Industrial Engineering Principles into Modern Construction Management</div>
+        <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank" class="research-link">→ ResearchGate</a>
+      </div>
+      <div class="research-card">
+        <div class="research-idx">PAPER 06</div>
+        <div class="research-title">Synchronization of Express Lines in Public Transportation Development</div>
+        <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank" class="research-link">→ ResearchGate</a>
+      </div>
+      <div class="research-card">
+        <div class="research-idx">PAPER 07</div>
+        <div class="research-title">Project Management Practices in Small-Scale Construction Projects</div>
+        <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank" class="research-link">→ ResearchGate</a>
+      </div>
+      <div class="research-card">
+        <div class="research-idx">PAPER 08</div>
+        <div class="research-title">Rethinking Traffic Flow in Sabunchu: A Modern Network Redesign Model</div>
+        <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank" class="research-link">→ ResearchGate</a>
+      </div>
+    </div>
 
-  <div style="margin-top:3rem" class="rv">
-    <div class="sec-head" style="margin-bottom:1.5rem"><span class="sec-n">04B</span><h3 class="sec-t" style="font-size:2rem">BOOKS <span>AUTHORED</span></h3></div>
-    <div class="bgrid">
-      <div class="bcard"><div class="bico">📖</div><div class="btit">Hərşeyşünas: Bir Sənaye Mühəndisinin Macerası</div></div>
-      <div class="bcard"><div class="bico">🏗️</div><div class="btit">Mən inşaatda kiməm?</div></div>
-      <div class="bcard"><div class="bico">⚙️</div><div class="btit">İnşaat: Təkcə Mühəndislərin sahəsi deyil</div></div>
-      <div class="bcard"><div class="bico">📊</div><div class="btit">Layihə idarəetmə və planlama — ilkin anlayışlar</div></div>
+    <div class="books-section reveal">
+      <div class="section-label" style="margin-bottom:24px;">Published Books</div>
+      <div class="books-grid">
+        <div class="book-card">
+          <span class="book-icon">📘</span>
+          <div class="book-title">Hərşeyşünas: Bir Sənaye Mühəndisinin Macerası</div>
+        </div>
+        <div class="book-card">
+          <span class="book-icon">📗</span>
+          <div class="book-title">Mən inşaatda kiməm?</div>
+        </div>
+        <div class="book-card">
+          <span class="book-icon">📙</span>
+          <div class="book-title">İnşaat: Təkcə Mühəndislərin sahəsi deyil</div>
+        </div>
+        <div class="book-card">
+          <span class="book-icon">📕</span>
+          <div class="book-title">Layihə idarə etmə və planlama: İlkin anlayışlar</div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div style="margin-top:3rem" class="rv">
-    <div class="sec-head" style="margin-bottom:1.5rem"><span class="sec-n">04C</span><h3 class="sec-t" style="font-size:2rem">CERTIFI<span>CATES</span></h3></div>
-    <div class="certs">
-      <div class="cert">Project Management Foundation</div>
-      <div class="cert">Construction Management — Reading Drawings & Specification</div>
-      <div class="cert">Construction Management — Technology On Site</div>
-      <div class="cert">Google Agile Foundation</div>
-      <div class="cert">Google Project Management Foundation</div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="edu-container">
+    <div class="section-label">06 — Academic</div>
+    <h2 class="section-title">Education & <span class="accent">Certifications</span></h2>
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <div class="edu-school">BAKU ENGINEERING UNIVERSITY</div>
+        <div class="edu-degree">Industrial Engineering (English-taught)</div>
+        <div class="edu-subjects">
+          <span class="edu-tag">Project Management</span>
+          <span class="edu-tag">Primavera & MS Project</span>
+          <span class="edu-tag">Quality Control</span>
+          <span class="edu-tag">Industrial Safety / HSE</span>
+          <span class="edu-tag">Optimization</span>
+          <span class="edu-tag">Production Planning</span>
+          <span class="edu-tag">AutoCAD</span>
+          <span class="edu-tag">Supply Chain Management</span>
+          <span class="edu-tag">Ergonomics</span>
+          <span class="edu-tag">Management for Engineers</span>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-school">BEU — SCHOOL OF LANGUAGES</div>
+        <div class="edu-degree">Intensive English Program — B2 (CEF)</div>
+        <div class="edu-subjects">
+          <span class="edu-tag">600 Hours Intensive Program</span>
+          <span class="edu-tag">Academic Reading & Writing</span>
+          <span class="edu-tag">Listening & Speaking</span>
+          <span class="edu-tag">B2 Level Achieved</span>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-school">DIV ACADEMY (THE FUTURE WRITERS)</div>
+        <div class="edu-degree">IT Project Management — 60% Scholarship</div>
+        <div class="edu-subjects">
+          <span class="edu-tag">PMO Book</span>
+          <span class="edu-tag">IT Project Life Cycle</span>
+          <span class="edu-tag">Project Integration Mgmt</span>
+          <span class="edu-tag">Agile Practice Guide</span>
+          <span class="edu-tag">CRM & PM Tools</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;" class="reveal">
+      <div class="section-label" style="margin-bottom:24px;">Certificates</div>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon">🏅</div>
+          <div class="cert-name">Project Management Foundation</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🏗️</div>
+          <div class="cert-name">Construction Management: Reading Drawings and Specification</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">⚙️</div>
+          <div class="cert-name">Construction Management: Technology On Site</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🟢</div>
+          <div class="cert-name">Google Agile Foundation & Project Management Foundation</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🤖</div>
+          <div class="cert-name">Google AI Essentials</div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
+</section>
 
-<!-- INDUSTCONS -->
-<div id="industcons">
-<div class="wrap">
-  <div class="sec-head rv"><span class="sec-n">05</span><h2 class="sec-t">INDUSTR<span>CONS</span></h2></div>
-  <div class="ic-grid rv">
-    <div>
-      <div class="ctag" style="margin-bottom:1rem">PLATFORM FOUNDER · Nov 2025 – Present</div>
-      <p style="font-size:0.92rem;color:var(--muted);line-height:1.85;margin-bottom:1.2rem">IndustrCons is a multi-directional platform for construction and industrial professionals. Starting with job market transparency — the platform has grown to <strong style="color:var(--y)">1000+ community members</strong> via WhatsApp.</p>
-      <p style="font-size:0.88rem;color:var(--muted);line-height:1.8">Three channels: <strong style="color:var(--text)">HR Network</strong> · <strong style="color:var(--text)">All Vacancies</strong> · <strong style="color:var(--text)">Construction Jobs</strong>. Future directions in development.</p>
-    </div>
-    <div>
-      <div class="ic-stat"><span class="ic-stat-l">COMMUNITY</span><span class="ic-stat-n">1000+</span></div>
-      <div class="ic-stat"><span class="ic-stat-l">CHANNELS</span><span class="ic-stat-n">3</span></div>
-      <div class="ic-stat"><span class="ic-stat-l">STATUS</span><span class="ic-stat-n" style="font-size:1.4rem">ACTIVE</span></div>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- REVIEWS -->
-<div id="reviews" class="dark-section">
-<div class="wrap">
-  <div class="sec-head rv"><span class="sec-n">06</span><h2 class="sec-t">WHAT THEY <span>SAY</span></h2></div>
-  <div class="rev-grid rv">
-    <div class="rev-card"><div class="rev-q">"</div><div class="rev-text">I was impressed by his professionalism, strong sense of responsibility, and analytical mindset. Elvin possesses deep knowledge in his field.</div><div class="rev-name">Gunduz Mammadov</div><div class="rev-title">Project Manager @ Amina & S Group</div><a class="rev-link" href="https://az.linkedin.com/in/gunduz-mammadov" target="_blank">↗ LinkedIn</a></div>
-    <div class="rev-card"><div class="rev-q">"</div><div class="rev-text">During a short time, he learned quickly about all the required processes on construction sites for daily and weekly reporting.</div><div class="rev-name">Alishir Aliyev</div><div class="rev-title">Founder & Director at SCOPE</div><a class="rev-link" href="https://az.linkedin.com/in/alishir-aliyev" target="_blank">↗ LinkedIn</a></div>
-    <div class="rev-card"><div class="rev-q">"</div><div class="rev-text">His exceptional expertise, unwavering dedication, and meticulous attention to detail significantly contributed to our project's success.</div><div class="rev-name">Arzu Mammadov</div><div class="rev-title">Construction Project Manager</div><a class="rev-link" href="https://az.linkedin.com/in/arzu-mammadov25" target="_blank">↗ LinkedIn</a></div>
-    <div class="rev-card"><div class="rev-q">"</div><div class="rev-text">During his employment period he showed himself as attentive to details and always ready to learn.</div><div class="rev-name">Tural Vazirov</div><div class="rev-title">Director, Contracts at SCOPE Consulting</div><a class="rev-link" href="https://tr.linkedin.com/in/tvazirov" target="_blank">↗ LinkedIn</a></div>
-    <div class="rev-card"><div class="rev-q">"</div><div class="rev-text">He quickly applied the skills and knowledge he gained, demonstrating remarkable responsibility and a strong work ethic.</div><div class="rev-name">Arzu Mursalova</div><div class="rev-title">Business Consultant | L&D</div><a class="rev-link" href="https://uk.linkedin.com/in/arzu-mursalova-b90ba1179" target="_blank">↗ LinkedIn</a></div>
-    <div class="rev-card"><div class="rev-q">"</div><div class="rev-text">He has demonstrated exceptional skills and dedication, possessing a remarkable ability to tackle complex problems with innovative solutions.</div><div class="rev-name">Khazar Najimbayli</div><div class="rev-title">Industrial Engineering Department</div><a class="rev-link" href="https://az.linkedin.com/in/khazar-najimbayli-98880652" target="_blank">↗ LinkedIn</a></div>
-    <div class="rev-card"><div class="rev-q">"</div><div class="rev-text">Elvin was always engaged in lessons, open to learning, and showed a strong interest in project coordination and management.</div><div class="rev-name">Zaur Mammadov</div><div class="rev-title">Project Leading Specialist, Azericard LLC</div><a class="rev-link" href="https://az.linkedin.com/in/zaur-mammadov-mba-pmp" target="_blank">↗ LinkedIn</a></div>
-    <div class="rev-card"><div class="rev-q">"</div><div class="rev-text">Having had the privilege of working closely with him, I can confidently say that Elvin is an invaluable asset to our team.</div><div class="rev-name">Afaq Hasanova</div><div class="rev-title">CEO at HPN ACADEMY Azerbaijan Branch</div><a class="rev-link" href="https://az.linkedin.com/in/afaq-hasanova-bb48633a3" target="_blank">↗ LinkedIn</a></div>
-  </div>
-</div>
-</div>
-
-<!-- SKILLS -->
-<div id="skills">
-<div class="wrap">
-  <div class="sec-head rv"><span class="sec-n">07</span><h2 class="sec-t">TECHNICAL <span>SKILLS</span></h2></div>
-  <div class="skills rv">
-    <div class="srow"><span class="sname">Construction Site Mgmt</span><div class="strack"><div class="sfill" style="width:90%"></div></div><span class="spct">90%</span></div>
-    <div class="srow"><span class="sname">Reinforced Concrete</span><div class="strack"><div class="sfill" style="width:85%"></div></div><span class="spct">85%</span></div>
-    <div class="srow"><span class="sname">Technical Documentation</span><div class="strack"><div class="sfill" style="width:92%"></div></div><span class="spct">92%</span></div>
-    <div class="srow"><span class="sname">Primavera P6</span><div class="strack"><div class="sfill" style="width:76%"></div></div><span class="spct">76%</span></div>
-    <div class="srow"><span class="sname">MS Project</span><div class="strack"><div class="sfill" style="width:80%"></div></div><span class="spct">80%</span></div>
-    <div class="srow"><span class="sname">AutoCAD</span><div class="strack"><div class="sfill" style="width:72%"></div></div><span class="spct">72%</span></div>
-    <div class="srow"><span class="sname">Quantity Surveying</span><div class="strack"><div class="sfill" style="width:78%"></div></div><span class="spct">78%</span></div>
-    <div class="srow"><span class="sname">Project Planning</span><div class="strack"><div class="sfill" style="width:88%"></div></div><span class="spct">88%</span></div>
-    <div class="srow"><span class="sname">Research & Analysis</span><div class="strack"><div class="sfill" style="width:83%"></div></div><span class="spct">83%</span></div>
-    <div class="srow"><span class="sname">Event Management</span><div class="strack"><div class="sfill" style="width:85%"></div></div><span class="spct">85%</span></div>
-  </div>
-</div>
-</div>
-
-<!-- CONTACT -->
-<div id="contact">
-<div class="ct-inner">
-  <div>
-    <div class="ct-big rv">LET'S<br><span>BUILD</span><br>TOGETHER</div>
-    <div class="ct-links rv">
-      <a href="https://linkedin.com/in/elvinasgarov" class="clink" target="_blank"><span class="clink-ico">in</span><span>linkedin.com/in/elvinasgarov</span></a>
-      <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" class="clink" target="_blank"><span class="clink-ico">RG</span><span>ResearchGate — Elvin Asgar</span></a>
-      <a href="mailto:elvinasgarov12@gmail.com" class="clink"><span class="clink-ico">@</span><span>elvinasgarov12@gmail.com</span></a>
-      <a href="mailto:elvin.asgar@yahoo.com" class="clink"><span class="clink-ico">@</span><span>elvin.asgar@yahoo.com</span></a>
-      <a href="tel:+994775889727" class="clink"><span class="clink-ico">☎</span><span>+994 77 588 97 27</span></a>
-      <a href="https://youtube.com/@ElvinAsgar" class="clink" target="_blank"><span class="clink-ico">▶</span><span>YouTube / TikTok / Facebook — Elvin Asgar</span></a>
+<!-- VOLUNTEER -->
+<section id="volunteer" style="background:var(--dark2);">
+  <div class="vol-container">
+    <div class="section-label">07 — Community</div>
+    <h2 class="section-title">Volunteer <span class="accent">Experience</span></h2>
+    <div class="vol-grid reveal">
+      <div class="vol-card">
+        <div class="vol-org">TASKOOL</div>
+        <div class="vol-role">Program Coordinator</div>
+      </div>
+      <div class="vol-card">
+        <div class="vol-org">STEAM AZERBAIJAN</div>
+        <div class="vol-role">International Volunteer</div>
+      </div>
+      <div class="vol-card">
+        <div class="vol-org">TAIM</div>
+        <div class="vol-role">International Volunteer — Educational Conference</div>
+      </div>
+      <div class="vol-card">
+        <div class="vol-org">BAKU CITY CIRCUIT</div>
+        <div class="vol-role">Event Volunteer</div>
+      </div>
+      <div class="vol-card">
+        <div class="vol-org">SCHOLARCOLAB.COM</div>
+        <div class="vol-role">Research Mentor</div>
+      </div>
     </div>
   </div>
-  <div class="ct-info rv">
-    <strong>EDUCATION</strong><br>
-    Baku Engineering University — BSc Industrial Engineering · 2019–2023<br>
-    BEU School of Languages · B2 English · 600hrs · 2018–2019<br>
-    Div Academy · IT Project Management · 60% Scholarship · 2025–2026<br><br>
-    <strong>VOLUNTEERING</strong><br>
-    Taskool — Program Coordinator<br>
-    STEAM Azerbaijan — International Volunteer<br>
-    TAIM — Educational Conference Volunteer<br>
-    Baku Circuit City — Volunteer<br>
-    ScholarColab.com — Research Mentor<br><br>
-    <strong>LOCATION</strong><br>
-    Baku, Azerbaijan · Open to: On-site · Hybrid · International<br><br>
-    <strong>STATUS</strong><br>
-    Open to Work ◆ Active ◆ 2026
-  </div>
-</div>
-</div>
+</section>
 
+<!-- RECOMMENDATIONS -->
+<section id="recommendations">
+  <div class="rec-container">
+    <div class="section-label">08 — Testimonials</div>
+    <h2 class="section-title">What People <span class="accent">Say</span></h2>
+    <div class="rec-slider-wrap">
+      <div class="rec-slider" id="recSlider">
+        <div class="rec-card">
+          <div class="rec-quote">"</div>
+          <div class="rec-text">I was impressed by his professionalism, strong sense of responsibility, and analytical mindset. Elvin possesses deep knowledge in his field.</div>
+          <div class="rec-person">
+            <div class="rec-avatar">GM</div>
+            <div>
+              <div class="rec-info-name">Gunduz Mammadov</div>
+              <div class="rec-info-title">Project Manager @ Amina & S Group</div>
+              <a href="https://az.linkedin.com/in/gunduz-mammadov" target="_blank" class="rec-info-link">→ LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-quote">"</div>
+          <div class="rec-text">During a short time, he learned quickly about all the required processes on construction sites for daily and weekly reporting.</div>
+          <div class="rec-person">
+            <div class="rec-avatar">AA</div>
+            <div>
+              <div class="rec-info-name">Alishir Aliyev</div>
+              <div class="rec-info-title">Founder & Director at SCOPE</div>
+              <a href="https://az.linkedin.com/in/alishir-aliyev" target="_blank" class="rec-info-link">→ LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-quote">"</div>
+          <div class="rec-text">His exceptional expertise, unwavering dedication, and meticulous attention to detail significantly contributed to our project's success.</div>
+          <div class="rec-person">
+            <div class="rec-avatar">AM</div>
+            <div>
+              <div class="rec-info-name">Arzu Mammadov</div>
+              <div class="rec-info-title">Construction Project Manager</div>
+              <a href="https://az.linkedin.com/in/arzu-mammadov25" target="_blank" class="rec-info-link">→ LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-quote">"</div>
+          <div class="rec-text">During his employment period he showed himself as attentive to details and always ready to learn.</div>
+          <div class="rec-person">
+            <div class="rec-avatar">TV</div>
+            <div>
+              <div class="rec-info-name">Tural Vazirov</div>
+              <div class="rec-info-title">Director, Contracts at SCOPE Consulting</div>
+              <a href="https://tr.linkedin.com/in/tvazirov" target="_blank" class="rec-info-link">→ LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-quote">"</div>
+          <div class="rec-text">He quickly applied the skills and knowledge he gained, demonstrating remarkable responsibility and a strong work ethic.</div>
+          <div class="rec-person">
+            <div class="rec-avatar">AR</div>
+            <div>
+              <div class="rec-info-name">Arzu Mursalova</div>
+              <div class="rec-info-title">Business Consultant | L&D</div>
+              <a href="https://uk.linkedin.com/in/arzu-mursalova-b90ba1179" target="_blank" class="rec-info-link">→ LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-quote">"</div>
+          <div class="rec-text">He has demonstrated exceptional skills and dedication, possessing a remarkable ability to tackle complex problems with innovative solutions.</div>
+          <div class="rec-person">
+            <div class="rec-avatar">KN</div>
+            <div>
+              <div class="rec-info-name">Khazar Najimbayli</div>
+              <div class="rec-info-title">Industrial Engineering Department</div>
+              <a href="https://az.linkedin.com/in/khazar-najimbayli-98880652" target="_blank" class="rec-info-link">→ LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-quote">"</div>
+          <div class="rec-text">Elvin was always engaged in lessons, open to learning, and showed a strong interest in project coordination and management.</div>
+          <div class="rec-person">
+            <div class="rec-avatar">ZM</div>
+            <div>
+              <div class="rec-info-name">Zaur Mammadov</div>
+              <div class="rec-info-title">Project Leading Specialist at Azericard LLC</div>
+              <a href="https://az.linkedin.com/in/zaur-mammadov-mba-pmp" target="_blank" class="rec-info-link">→ LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-quote">"</div>
+          <div class="rec-text">Having had the privilege of working closely with him, I can confidently say that Elvin is an invaluable asset to our team.</div>
+          <div class="rec-person">
+            <div class="rec-avatar">AH</div>
+            <div>
+              <div class="rec-info-name">Afaq Hasanova</div>
+              <div class="rec-info-title">CEO at HPN ACADEMY Azerbaijan Branch</div>
+              <a href="https://az.linkedin.com/in/afaq-hasanova-bb48633a3" target="_blank" class="rec-info-link">→ LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" onclick="slideRec(-1)">←</button>
+      <button class="slider-btn" onclick="slideRec(1)">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <span>© 2026 <span class="fy">ELVIN ASGAR</span></span>
-  <span>CHANGE <span class="fy">TO</span> CHANGE</span>
-  <span>CONSTRUCTION · RESEARCH · INNOVATION</span>
+  <span class="footer-logo">ELVIN ASGAROV</span>
+  <div class="footer-tagline">// CHANGE TO CHANGE</div>
+  <div class="footer-links">
+    <a href="mailto:elvinasgarov12@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/elvinasgarov" target="_blank">LinkedIn</a>
+    <a href="https://www.researchgate.net/profile/Elvin-Asgar/research" target="_blank">ResearchGate</a>
+    <a href="https://chat.whatsapp.com/JS7XVLh8v2I4HPLLshwTr2" target="_blank">IndustrCons Community</a>
+    <a href="https://www.linkedin.com/company/tedx-infinity/" target="_blank">TEDx Infinity</a>
+  </div>
+  <div class="footer-copy">© 2025 Elvin Asgarov · Built for GitHub Pages</div>
 </footer>
 
 <script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('up');x.target.querySelectorAll('.sfill').forEach(f=>f.classList.add('go'))}})},{threshold:0.07});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-const sObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.querySelectorAll('.sfill').forEach(f=>f.classList.add('go'))})},{threshold:0.2});
-document.querySelectorAll('.skills').forEach(el=>sObs.observe(el));
-const secs=document.querySelectorAll('[id]'),nls=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-160)c=s.id});nls.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'var(--y)':''})});
+// ── Mobile Nav ──
+function openMobNav() {
+  document.getElementById('mobNav').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobNav() {
+  document.getElementById('mobNav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── Custom Cursor ──
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+function animRing() { rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animRing); }
+animRing();
+
+// ── Particles ──
+const pContainer = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const left = Math.random() * 100;
+  const dur = 8 + Math.random() * 12;
+  const delay = Math.random() * 10;
+  const dx = (Math.random() - 0.5) * 100;
+  p.style.cssText = `left:${left}%;--dx:${dx}px;animation-duration:${dur}s;animation-delay:${delay}s;`;
+  if (Math.random() > 0.7) p.style.background = 'var(--neon-orange)';
+  pContainer.appendChild(p);
+}
+
+// ── 3D BIM Canvas ──
+const canvas = document.getElementById('bim-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, t = 0;
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+
+function project(x, y, z) {
+  const fov = 400;
+  const pz = z + 800;
+  return { x: W/2 + x * fov / pz, y: H/2 + y * fov / pz };
+}
+
+const buildings = [];
+for (let i = 0; i < 12; i++) {
+  const bx = (Math.random() - 0.5) * 600;
+  const bz = Math.random() * 400 - 100;
+  const bh = 80 + Math.random() * 200;
+  const bw = 40 + Math.random() * 60;
+  buildings.push({ x: bx, z: bz, h: bh, w: bw });
+}
+
+function drawBIM() {
+  ctx.clearRect(0, 0, W, H);
+  t += 0.003;
+
+  const rotY = Math.sin(t * 0.5) * 0.2;
+
+  buildings.forEach((b, i) => {
+    const rx = b.x * Math.cos(rotY) - b.z * Math.sin(rotY);
+    const rz = b.x * Math.sin(rotY) + b.z * Math.cos(rotY);
+
+    const tl = project(rx - b.w/2, -b.h/2, rz);
+    const tr = project(rx + b.w/2, -b.h/2, rz);
+    const bl = project(rx - b.w/2, b.h/2, rz);
+    const br = project(rx + b.w/2, b.h/2, rz);
+
+    const alpha = 0.15 + Math.sin(t + i) * 0.05;
+    ctx.strokeStyle = i % 3 === 0 ? `rgba(0,245,255,${alpha})` : `rgba(255,107,26,${alpha * 0.7})`;
+    ctx.lineWidth = 0.5;
+
+    // Building outline
+    ctx.beginPath();
+    ctx.moveTo(tl.x, tl.y); ctx.lineTo(tr.x, tr.y);
+    ctx.lineTo(br.x, br.y); ctx.lineTo(bl.x, bl.y);
+    ctx.closePath(); ctx.stroke();
+
+    // Horizontal lines (floors)
+    const floors = Math.floor(b.h / 25);
+    for (let f = 1; f < floors; f++) {
+      const yRatio = f / floors;
+      const ly = -b.h/2 + b.h * yRatio;
+      const lLeft = project(rx - b.w/2, ly, rz);
+      const lRight = project(rx + b.w/2, ly, rz);
+      ctx.beginPath();
+      ctx.moveTo(lLeft.x, lLeft.y); ctx.lineTo(lRight.x, lRight.y);
+      ctx.globalAlpha = 0.4;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+
+    // Ground connection
+    const ground = project(rx, b.h/2 + 20, rz);
+    ctx.beginPath();
+    ctx.moveTo(bl.x, bl.y); ctx.lineTo(ground.x, ground.y); ctx.lineTo(br.x, br.y);
+    ctx.globalAlpha = 0.2; ctx.stroke(); ctx.globalAlpha = 1;
+  });
+
+  // Connecting beams at top level
+  ctx.strokeStyle = `rgba(0,245,255,0.06)`;
+  for (let i = 0; i < buildings.length - 1; i++) {
+    const a = buildings[i], b = buildings[i+1];
+    const ax = a.x * Math.cos(rotY) - a.z * Math.sin(rotY);
+    const az = a.x * Math.sin(rotY) + a.z * Math.cos(rotY);
+    const bx2 = b.x * Math.cos(rotY) - b.z * Math.sin(rotY);
+    const bz2 = b.x * Math.sin(rotY) + b.z * Math.cos(rotY);
+    const pa = project(ax, -a.h/2, az);
+    const pb = project(bx2, -b.h/2, bz2);
+    ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
+  }
+
+  requestAnimationFrame(drawBIM);
+}
+drawBIM();
+
+// ── Scroll Reveal ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(r => observer.observe(r));
+
+// ── Skill Bar Animation ──
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const fills = e.target.querySelectorAll('.skill-fill');
+      fills.forEach(f => {
+        const w = parseFloat(f.style.getPropertyValue('--w'));
+        setTimeout(() => { f.style.transform = `scaleX(${w})`; f.classList.add('animate'); }, 200);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('#skills').forEach(s => skillObserver.observe(s));
+
+// ── Experience Toggle ──
+function toggleExp(el) {
+  const card = el.closest('.exp-card');
+  const bullets = card.querySelector('.exp-bullets');
+  const arrow = el.querySelector('.toggle-arrow');
+  if (bullets.classList.contains('open')) {
+    bullets.classList.remove('open');
+    arrow.classList.remove('open');
+    el.childNodes[1].textContent = ' VIEW RESPONSIBILITIES';
+  } else {
+    bullets.classList.add('open');
+    arrow.classList.add('open');
+    el.childNodes[1].textContent = ' HIDE';
+  }
+}
+
+// ── Filter Experience ──
+function filterExp(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.exp-card').forEach(card => {
+    const cats = card.getAttribute('data-cat') || '';
+    if (cat === 'all' || cats.includes(cat)) {
+      card.style.display = '';
+      setTimeout(() => card.style.opacity = '1', 10);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// ── Recommendation Slider ──
+let recIdx = 0;
+const recSlider = document.getElementById('recSlider');
+function slideRec(dir) {
+  const cards = recSlider.querySelectorAll('.rec-card');
+  const cardW = cards[0].offsetWidth + 24;
+  const maxIdx = Math.max(0, cards.length - Math.floor(recSlider.parentElement.offsetWidth / cardW));
+  recIdx = Math.max(0, Math.min(recIdx + dir, maxIdx));
+  recSlider.style.transform = `translateX(-${recIdx * cardW}px)`;
+}
+
+// ── Nav active on scroll ──
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+current ? 'var(--neon-cyan)' : '';
+  });
+});
+
+// ── Glitch on load ──
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.glitch').style.animation = 'none';
+  setTimeout(() => document.querySelector('.glitch').style.animation = '', 100);
+});
 </script>
 </body>
 </html>
